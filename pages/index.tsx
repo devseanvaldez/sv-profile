@@ -5,6 +5,8 @@ import Lottie from "lottie-react";
 import designerBuildingWebsiteAnimation from "@/lottie/designer-building-website.json";
 import webDesignLayoutAnimation from "@/lottie/web-design-layout.json";
 import userInterfaceResearchAnimation from "@/lottie/user-interface-research.json";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer/Footer";
 export default function Home() {
   return (
     <>
@@ -36,7 +38,7 @@ export default function Home() {
           </div>
         }
       >
-        <div className="bg-gradient-to-r from-sagegreen-500 text-3xl min-h-screen order-2 sm:p-10 p-4 dark:bg-black">
+        <div className="text-3xl min-h-screen order-2 sm:p-10 p-4">
           <p className="uppercase font-heading text-5xl xl:text-left text-sagegreen-900 dark:text-sagegreen-100">
             {LABELS.content.title}
           </p>
@@ -48,10 +50,10 @@ export default function Home() {
                 loop={true}
               />
               <div className="flex flex-col flex-wrap items-start">
-                <p className="text-sagegreen-900 dark:text-sagegreen-100 font-bold">
+                <p className="text-sagegreen-900 lg:text-3xl dark:text-sagegreen-100 font-bold">
                   {LABELS.content["content-1"]}
                 </p>
-                <p className="text-lg pt-2 text-sagegreen-900 dark:text-white">
+                <p className="text-lg lg:text-xl pt-2 text-sagegreen-900 dark:text-white">
                   {LABELS.content.research}
                 </p>
               </div>
@@ -59,10 +61,10 @@ export default function Home() {
             {/* content 2 */}
             <div className="grid grid-cols-1 xl:grid xl:grid-cols-2 items-center">
               <div className="flex flex-col flex-wrap items-start order-1 xl:order-[0]">
-                <p className="text-sagegreen-900 dark:text-sagegreen-100 font-bold">
+                <p className="text-sagegreen-900 lg:text-3xl dark:text-sagegreen-100 font-bold">
                   {LABELS.content["content-2"]}
                 </p>
-                <p className="text-lg pt-2 text-sagegreen-900 dark:text-white ">
+                <p className="text-lg lg:text-xl pt-2 text-sagegreen-900 dark:text-white ">
                   {LABELS.content.design}
                 </p>
               </div>
@@ -75,15 +77,16 @@ export default function Home() {
                 loop={true}
               />
               <div className="flex flex-col flex-wrap items-start">
-                <p className="text-sagegreen-900 dark:text-sagegreen-100 font-bold">
+                <p className="text-sagegreen-900 lg:text-3xl dark:text-sagegreen-100 font-bold">
                   {LABELS.content["content-3"]}
                 </p>
-                <p className="text-lg pt-2 text-sagegreen-900 dark:text-white">
+                <p className="text-lg lg:text-xl pt-2 text-sagegreen-900 dark:text-white">
                   {LABELS.content.build}
                 </p>
               </div>
             </div>
           </div>
+          <Footer />
         </div>
       </TwoGridWithImage>
     </>

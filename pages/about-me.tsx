@@ -5,6 +5,7 @@ import TwoGridWithImage from "@/layouts/TwoGridWithImage";
 import Lottie from "lottie-react";
 import happyHackerAnimation from "@/lottie/happy-hacker.json";
 import Link from "next/link";
+import Footer from "@/components/Footer/Footer";
 
 type Props = {};
 
@@ -36,7 +37,7 @@ const AboutMe = (props: Props) => {
             );
           })}
           <Link
-            className="text-dustyblue pt-4 underline font-bold"
+            className="text-white pt-4 underline font-bold dark:text-sagegreen-100"
             href="/contact"
           >
             Let&apos;s connect!
@@ -56,6 +57,7 @@ const AboutMe = (props: Props) => {
               })}
             </div>
           </div>
+          <Footer />
         </div>
       </TwoGridWithImage>
     </>

@@ -11,6 +11,7 @@ module.exports = {
       fontFamily: {
         sans: ["Nunito Sans", "sans-serif"],
         heading: ["Montserrat", "sans-serif"],
+        footer: ["Anek Gujarati", "sans-serif"],
       },
       colors: {
         transparent: "transparent",

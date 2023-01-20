@@ -3,6 +3,7 @@ import Head from "next/head";
 import { LABELS } from "@/enums/labels";
 import CircularLoader from "@/components/CircularLoader/CircularLoader";
 import TwoGridWithImage from "@/layouts/TwoGridWithImage";
+import Footer from "@/components/Footer/Footer";
 
 type Props = {};
 
@@ -54,11 +55,15 @@ const Contact = (props: Props) => {
             {LABELS.contact.title}
           </p>
           {LABELS.contact.text.map((label: string) => {
-            return <p key={label}>{label}</p>;
+            return (
+              <p className="lg:text-xl" key={label}>
+                {label}
+              </p>
+            );
           })}
-          <div className="flex flex-col flex-wrap gap-y-4 pt-6">
-            <p className="font-bold">
-              <span className="font-normal text-sagegreen-600 dark:text-sagegreen-100  inline-block w-[8rem]">
+          <div className="flex flex-col flex-wrap gap-y-4 pt-6 lg:text-xl ">
+            <p className="font-bold lg:text-xl">
+              <span className="font-normal  text-sagegreen-600 dark:text-sagegreen-100  inline-block w-[8rem]">
                 Email:
               </span>
               {LABELS.contact.email}
@@ -71,10 +76,13 @@ const Contact = (props: Props) => {
             </p>
           </div>
           {/* form */}
-          <form className="flex flex-col gap-y-4 mt-10" onSubmit={onSubmit}>
+          <form
+            className="flex flex-col gap-y-4 mt-10 lg:text-xl"
+            onSubmit={onSubmit}
+          >
             <div className="grid grid-cols-2 gap-x-4">
               <input
-                className="border rounded-md px-4 py-2 w-full dark:bg-custom-gray-900 dark:border-transparent dark:text-white"
+                className="border rounded-md px-4 py-2 w-full lg:text-xl dark:bg-custom-gray-900 dark:border-transparent dark:text-white"
                 placeholder="John Doe"
                 name="full_name"
                 value={fullName}
@@ -84,7 +92,7 @@ const Contact = (props: Props) => {
                 disabled={isSending}
               />
               <input
-                className="border rounded-md px-4 py-2 w-full dark:bg-custom-gray-900 dark:border-transparent dark:text-white"
+                className="border rounded-md px-4 py-2 w-full lg:text-xl dark:bg-custom-gray-900 dark:border-transparent dark:text-white"
                 placeholder="johndoe@gmail.com"
                 name="email"
                 value={email}
@@ -95,7 +103,7 @@ const Contact = (props: Props) => {
               />
             </div>
             <textarea
-              className="border rounded-md px-4 py-2 w-full dark:bg-custom-gray-900 dark:border-transparent dark:text-white resize-none"
+              className="border rounded-md px-4 py-2 w-full lg:text-xl dark:bg-custom-gray-900 dark:border-transparent dark:text-white resize-none"
               placeholder="Message..."
               rows={4}
               value={message}
@@ -105,12 +113,13 @@ const Contact = (props: Props) => {
               disabled={isSending}
             />
             <button
-              className="bg-sagegreen-600 text-white font-heading p-2 rounded-md shadow-lg"
+              className="bg-sagegreen-600 text-white font-heading p-2 rounded-md shadow-lg lg:text-xl"
               disabled={isSending}
             >
               {isSending ? <CircularLoader /> : "Submit"}
             </button>
           </form>
+          <Footer />
         </div>
       </TwoGridWithImage>
     </>
