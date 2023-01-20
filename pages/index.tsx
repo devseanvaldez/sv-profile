@@ -37,7 +37,7 @@ export default function Home() {
         }
       >
         <div className="bg-gradient-to-r from-sagegreen-500 text-3xl min-h-screen order-2 sm:p-10 p-4 dark:bg-black">
-          <p className="uppercase font-heading text-5xl text-center xl:text-left text-sagegreen-900 dark:text-sagegreen-100">
+          <p className="uppercase font-heading text-5xl xl:text-left text-sagegreen-900 dark:text-sagegreen-100">
             {LABELS.content.title}
           </p>
           <div className="max-w-[1000px] sm:pt-6">
