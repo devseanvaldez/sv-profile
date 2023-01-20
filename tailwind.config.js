@@ -28,7 +28,9 @@ module.exports = {
         sagegreen: {
           100: "#94A69F",
           400: "#738678",
+          500: "#48685c",
           600: "#4a6c58",
+          900: "#183228",
         },
         dustyblue: "#4F6F8C",
         "custom-gray": {

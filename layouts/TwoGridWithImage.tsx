@@ -10,8 +10,8 @@ type Props = {
 
 const TwoGridWithImage = ({ img, children, leftChild }: Props) => {
   return (
-    <div className="sm:min-h-screen grid sm:grid-cols-2 items-start">
-      <div className="min-h-[10rem] sm:h-screen dark:grayscale relative sm:sticky top-0 z-10 order-1">
+    <div className="sm:min-h-screen grid lg:grid-cols-2 items-start">
+      <div className="min-h-[10rem] lg:h-screen dark:grayscale relative lg:sticky top-0 z-10 order-1">
         <div className="absolute inset-0 z-10">
           <div className="absolute inset-0 dark:bg-black dark:bg-opacity-20"></div>
           <img src={img} className="h-full w-full object-cover" alt="" />
