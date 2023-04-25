@@ -27,7 +27,7 @@ export const LABELS = {
   about: {
     title: "About me",
     text: [
-      "Hi I'm Sean. In year 2020, I started as Junior-level. I have an experience in building websites for businesses, and have been part of creating In-house projects. It helps me re-design a legacy website into a modern looking React/NextJS website that implements new features and functionalities that comply with its requirements.",
+      "Hi I'm Sean. In year 2020, I started as Junior-level in one of the logistic company here in the Philippines. I have been part of creating In-house project such as Dashboards used in Logistics using GPS integrated with Google map connected to our Backend Service that returns data via socket. While having an Upwork for a short period of time, I also having an experience in building websites for businesses such as Travel Agency app used in UAE. It helps me re-design a legacy website into a modern looking React/NextJS website that implements new features and functionalities that comply with its requirements.",
       "With that, the major technologies I've been using are ReactJS NextJS, TailwindCSS and GIT. I also used some libraries like Redux toolkit, Axios and UI libraries such as Material UI, Reactstrap and many more.",
       "I continuously hone my skills and can code adequately with strong problem solving skills. I will make sure that the code is optimized and passed on website performance testing applications. I constantly check Lighthouse to know what are the possible solutions to bottleneck problems.",
       "Regular communication is really important to me when it comes to a workplace to understand the task conditions efficiently.",
