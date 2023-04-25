@@ -11,8 +11,8 @@ type Props = {
 const TwoGridWithImage = ({ img, children, leftChild }: Props) => {
   return (
     <div className="sm:min-h-screen grid sm:grid-cols-2 items-start bg-gradient-to-t xl:bg-gradient-to-l from-sagegreen-500">
-      <div className="min-h-[30rem] lg:min-h-[10rem] sm:h-screen dark:grayscale relative sm:sticky top-0 z-10 overflow-hidden order-1">
-        <div className="absolute -inset-0 z-10">
+      <div className="min-h-[30rem] lg:min-h-[10rem] sm:h-screen relative sm:sticky top-0 z-10 overflow-hidden order-1">
+        <div className="absolute -inset-0 z-10 dark:grayscale">
           <div className="absolute inset-0 dark:bg-opacity-20"></div>
           {img && (
             <img

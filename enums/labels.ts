@@ -11,7 +11,7 @@ export const LABELS = {
     title: "Sean P. Valdez",
     text: "2 years working experience as a Mid level Frontend Developer",
     content: [
-      "Since 2018 I have experience in building websites for businesses and have been part of creating In-house projects.",
+      "Since 2020 I have experience in building websites for businesses and have been part of creating In-house projects.",
       "Re-designing legacy website into a modern looking React/NextJS website and implementing new features and functionalities that comply with its requirements.",
       "Making sure code is optimized and passed on website performance testing applications and constantly check Lighthouse to know what are the possible solutions to bottleneck problems.",
     ],
@@ -27,7 +27,7 @@ export const LABELS = {
   about: {
     title: "About me",
     text: [
-      "Hi I'm Sean. In year 2020, I started as Junior-level, and then after a couple of years I've been promoted to Mid-level Frontend Developer. I have an experience in building websites for businesses, and have been part of creating In-house projects. It helps me re-design a legacy website into a modern looking React/NextJS website that implements new features and functionalities that comply with its requirements.",
+      "Hi I'm Sean. In year 2020, I started as Junior-level. I have an experience in building websites for businesses, and have been part of creating In-house projects. It helps me re-design a legacy website into a modern looking React/NextJS website that implements new features and functionalities that comply with its requirements.",
       "With that, the major technologies I've been using are ReactJS NextJS, TailwindCSS and GIT. I also used some libraries like Redux toolkit, Axios and UI libraries such as Material UI, Reactstrap and many more.",
       "I continuously hone my skills and can code adequately with strong problem solving skills. I will make sure that the code is optimized and passed on website performance testing applications. I constantly check Lighthouse to know what are the possible solutions to bottleneck problems.",
       "Regular communication is really important to me when it comes to a workplace to understand the task conditions efficiently.",

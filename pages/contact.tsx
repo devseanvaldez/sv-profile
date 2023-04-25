@@ -82,7 +82,7 @@ const Contact = (props: Props) => {
           >
             <div className="grid grid-cols-2 gap-x-4">
               <input
-                className="border rounded-md px-4 py-2 w-full lg:text-xl dark:bg-custom-gray-900 dark:border-transparent dark:text-white"
+                className="border rounded-md px-4 py-2 w-full lg:text-xl dark:bg-custom-gray-900 dark:border-transparent dark:text-white dark:bg-opacity-30"
                 placeholder="John Doe"
                 name="full_name"
                 value={fullName}
@@ -92,7 +92,7 @@ const Contact = (props: Props) => {
                 disabled={isSending}
               />
               <input
-                className="border rounded-md px-4 py-2 w-full lg:text-xl dark:bg-custom-gray-900 dark:border-transparent dark:text-white"
+                className="border rounded-md px-4 py-2 w-full lg:text-xl dark:bg-custom-gray-900 dark:border-transparent dark:text-white dark:bg-opacity-30"
                 placeholder="johndoe@gmail.com"
                 name="email"
                 value={email}
@@ -103,7 +103,7 @@ const Contact = (props: Props) => {
               />
             </div>
             <textarea
-              className="border rounded-md px-4 py-2 w-full lg:text-xl dark:bg-custom-gray-900 dark:border-transparent dark:text-white resize-none"
+              className="border rounded-md px-4 py-2 w-full lg:text-xl dark:bg-custom-gray-900 dark:border-transparent dark:text-white dark:bg-opacity-30 resize-none"
               placeholder="Message..."
               rows={4}
               value={message}

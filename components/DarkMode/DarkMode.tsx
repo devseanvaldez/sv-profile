@@ -4,7 +4,8 @@ import Icon from "../Icon";
 type Props = {};
 
 const DarkMode = (props: Props) => {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
+  // const [darkMode, setDarkMode] = useState(false);
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);

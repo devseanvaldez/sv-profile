@@ -5,7 +5,6 @@ import Lottie from "lottie-react";
 import designerBuildingWebsiteAnimation from "@/lottie/designer-building-website.json";
 import webDesignLayoutAnimation from "@/lottie/web-design-layout.json";
 import userInterfaceResearchAnimation from "@/lottie/user-interface-research.json";
-import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer/Footer";
 export default function Home() {
   return (
