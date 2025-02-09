@@ -1,13 +1,22 @@
-import { Html, Head, Main, NextScript } from 'next/document'
+// In your _document.js (or _app.js if you prefer)
+import Document, { Html, Head, Main, NextScript } from "next/document";
 
-export default function Document() {
-  return (
-    <Html lang="en">
-      <Head />
-      <body>
-        <Main />
-        <NextScript />
-      </body>
-    </Html>
-  )
+class MyDocument extends Document {
+  render() {
+    return (
+      <Html>
+        <Head>
+          {/* This meta tag is critical for mobile responsiveness */}
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          {/* Other meta tags and links */}
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
+  }
 }
+
+export default MyDocument;
