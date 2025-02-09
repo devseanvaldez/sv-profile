@@ -6,9 +6,11 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          {/* This meta tag is critical for mobile responsiveness */}
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          {/* Other meta tags and links */}
+          {/* Viewport meta tag for mobile responsiveness */}
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, minimum-scale=1"
+          />
         </Head>
         <body>
           <Main />
