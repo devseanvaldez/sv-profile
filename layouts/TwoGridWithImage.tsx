@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Navigation from "@/components/Navigation";
+import BrandLogo from "@/components/BrandLogo/BrandLogo"; // Import the logo component
 import React, { ReactNode } from "react";
 
 type Props = {
@@ -23,7 +24,14 @@ const TwoGridWithImage = ({ img, children, leftChild }: Props) => {
           )}
         </div>
         <div className="flex flex-col h-full relative justify-between z-30 sm:p-10 p-4">
-          <Header />
+          {/* Header Section: includes the logo, header content, and navigation */}
+          <div className="flex items-center justify-between">
+            {/* Logo and Header are side-by-side */}
+            <div className="flex items-center space-x-4">
+              <BrandLogo />
+              <Header />
+            </div>
+          </div>
           {leftChild}
           <Navigation />
         </div>

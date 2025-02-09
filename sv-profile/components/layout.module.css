@@ -1,15 +1,40 @@
+/* Container: Provides a centered, responsive layout */
 .container {
   max-width: 36rem;
   padding: 0 1rem;
   margin: 3rem auto 6rem;
 }
 
+/* Increase container width on larger screens */
+@media (min-width: 768px) {
+  .container {
+    max-width: 48rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 60rem;
+  }
+}
+
+/* Header: Centers content and adds a gap between items */
 .header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1rem; /* Adds consistent spacing between header children */
+  margin-bottom: 2rem; /* Optional: Adds spacing after the header */
 }
 
+/* Back To Home: Adds top margin and subtle hover effect */
 .backToHome {
-  margin: 3rem 0 0;
+  margin-top: 3rem;
+  text-align: center;
+  transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+/* Hover state for backToHome (adjust color as needed) */
+.backToHome:hover {
+  color: var(--accent-color, #0070f3);
 }

@@ -1,42 +1,43 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Icon from "../Icon";
 
-type Props = {};
+const DarkMode: React.FC = () => {
+  const [darkMode, setDarkMode] = useState<boolean>(false);
 
-const DarkMode = (props: Props) => {
-  const [darkMode, setDarkMode] = useState(true);
-  // const [darkMode, setDarkMode] = useState(false);
-
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
-
-  const didRef = useRef(0);
-
+  // On mount, initialize the theme from localStorage.
   useEffect(() => {
-    if (didRef.current < 2) {
-      setDarkMode(localStorage["sv-theme"] === "dark");
-      didRef.current += 1;
-
-      return;
+    if (typeof window !== "undefined") {
+      const savedTheme = localStorage.getItem("sv-theme");
+      if (savedTheme) {
+        setDarkMode(savedTheme === "dark");
+      }
     }
+  }, []);
 
-    if (darkMode) {
-      localStorage["sv-theme"] = "dark";
-      console.log(localStorage["sv-theme"]);
-      document.body.classList.add("dark");
-      document.body.classList.remove("bg-texture");
-    } else {
-      localStorage["sv-theme"] = "light";
-      document.body.classList.remove("dark");
-      document.body.classList.add("bg-texture");
+  // Whenever darkMode changes, update localStorage and the document body classes.
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("sv-theme", darkMode ? "dark" : "light");
+      document.body.classList.toggle("dark", darkMode);
+      // When dark mode is enabled, remove the background texture;
+      // otherwise, add it back.
+      document.body.classList.toggle("bg-texture", !darkMode);
     }
   }, [darkMode]);
 
+  const toggleDarkMode = () => {
+    setDarkMode((prevMode) => !prevMode);
+  };
+
   return (
-    <button onClick={toggleDarkMode}>
-      <div className="flex justify-end item gap-x-4">
-        <Icon name={darkMode ? "sun" : "moon"} />
+    <button
+      onClick={toggleDarkMode}
+      aria-label={`Switch to ${darkMode ? "light" : "dark"} mode`}
+      className="p-2 rounded transition-colors duration-300 focus:outline-none"
+    >
+      <div className="flex items-center justify-center">
+        {/* Using "sunrise" when dark mode is active, otherwise "moon" */}
+        <Icon name={darkMode ? "sunrise" : "moon"} />
       </div>
     </button>
   );

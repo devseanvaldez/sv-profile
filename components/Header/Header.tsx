@@ -5,14 +5,17 @@ import DarkMode from "../DarkMode";
 
 type Props = {};
 
-const Header = (props: Props) => {
+const Header: React.FC<Props> = () => {
   return (
-    <div className="flex items-center justify-between">
+    <header className="flex items-center justify-between p-4">
       <Link className="text-3xl font-bold" href="/">
         {LABELS.header.logo}
       </Link>
-      <DarkMode />
-    </div>
+      {/* Wrap DarkMode in a div with a left margin */}
+      <div className="ml-4">
+        <DarkMode />
+      </div>
+    </header>
   );
 };
 

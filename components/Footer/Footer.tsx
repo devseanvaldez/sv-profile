@@ -1,12 +1,21 @@
 import React from "react";
 
-type Props = {};
-
-const Footer = (props: Props) => {
+const Footer: React.FC = () => {
   return (
-    <div className="font-footer text-sagegreen-900 dark:text-sagegreen-100 text-center text-base pt-6 lg:pt-10">
-      &copy; 2023 - dev.seanvaldez
-    </div>
+    <footer className="font-footer text-sagegreen-900 dark:text-sagegreen-100 text-center text-sm lg:text-base py-6 border-t border-sagegreen-400 dark:border-sagegreen-600">
+      <p>
+        &copy; {new Date().getFullYear()} -{" "}
+        <a
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=dev.seanvaldez@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:underline transition-colors duration-300"
+        >
+          dev.seanvaldez@gmail.com
+        </a>
+      </p>
+      <p className="mt-2">All rights reserved.</p>
+    </footer>
   );
 };
 

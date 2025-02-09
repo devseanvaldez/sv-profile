@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
+import dynamic from "next/dynamic";
 import Head from "next/head";
 import { LABELS } from "@/enums/labels";
 import TwoGridWithImage from "@/layouts/TwoGridWithImage";
-import Lottie from "lottie-react";
 import happyHackerAnimation from "@/lottie/happy-hacker.json";
 import Link from "next/link";
 import Footer from "@/components/Footer/Footer";
+
+// Dynamically import Lottie with SSR disabled
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
 type Props = {};
 
@@ -17,44 +20,61 @@ const AboutMe = (props: Props) => {
         <meta name="profile" content="sv" />
       </Head>
       <TwoGridWithImage img="/images/sv.JPG">
-        <div className="flex flex-col flex-wrap justify-start text-xl item lg:p-20 p-4 font-extralight leading-8 order-2 dark:">
-          <div className="flex items-end justify-between">
-            <p className="lg:pb-10 pb-4 font-bold text-5xl uppercase font-heading text-sagegreen-600 dark:text-sagegreen-100">
+        {/* Main container with glassmorphism effect */}
+        <div
+          className="flex flex-col gap-8 text-xl lg:p-20 p-4 font-extralight leading-8 order-2 
+                        bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm rounded-lg shadow-xl 
+                        transition-all duration-300 hover:scale-105"
+        >
+          {/* Title & Animation */}
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+            <h1
+              className="font-bold text-5xl uppercase font-heading tracking-wide 
+                           bg-gradient-to-r from-green-400 to-green-600 text-transparent bg-clip-text 
+                           drop-shadow-md"
+            >
               {LABELS.about.title}
-            </p>
-            <div className="max-w-[300px]">
+            </h1>
+            <div className="w-full max-w-[300px]">
               <Lottie animationData={happyHackerAnimation} loop={true} />
             </div>
           </div>
-          {LABELS.about.text.map((label: string) => {
-            return (
+          {/* About Text */}
+          <div className="space-y-6">
+            {LABELS.about.text.map((label: string, index: number) => (
               <p
-                className="text-xl font-light max-w-[60rem] leading-[3rem]"
-                key={label}
+                key={index}
+                className="text-xl font-light max-w-[60rem] leading-[3rem] text-gray-700 dark:text-gray-300"
               >
                 {label}
               </p>
-            );
-          })}
-          <Link
-            className="text-white pt-4 underline font-bold dark:text-sagegreen-100"
-            href="/contact"
-          >
-            Let&apos;s connect!
-          </Link>
-          <div className="flex flex-wrap flex-col mt-10">
-            <p className="font-bold pb-1 text-2xl">technologies</p>
-            <div className="flex flex-wrap justify-start items-start text-base font-extralight gap-6 pt-6 pb-6">
-              {LABELS.introduction.technologies.map((label: string) => {
-                return (
-                  <p
-                    className="bg-sagegreen-400 dark:bg-sagegreen-100 text-white dark:text-black px-2 py-1 rounded-md shadow-lg"
-                    key={label}
-                  >
-                    {label}
-                  </p>
-                );
-              })}
+            ))}
+          </div>
+          {/* Contact Link */}
+          <div>
+            <Link
+              href="/contact"
+              className="inline-block text-sagegreen-600 dark:text-sagegreen-300 underline font-bold 
+                         hover:text-sagegreen-800 dark:hover:text-sagegreen-100 transition-colors duration-300"
+            >
+              Let&apos;s connect!
+            </Link>
+          </div>
+          {/* Technologies Section */}
+          <div className="flex flex-col mt-10 gap-4">
+            <p className="font-bold pb-1 text-2xl text-gray-800 dark:text-gray-200">
+              Technologies
+            </p>
+            <div className="flex flex-wrap gap-4">
+              {LABELS.introduction.technologies.map((label: string) => (
+                <span
+                  key={label}
+                  className="bg-sagegreen-400 dark:bg-sagegreen-100 text-white dark:text-black 
+                             px-3 py-1 rounded-md shadow hover:scale-105 transition-transform duration-300"
+                >
+                  {label}
+                </span>
+              ))}
             </div>
           </div>
           <Footer />
