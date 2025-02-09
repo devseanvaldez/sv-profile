@@ -1,4 +1,4 @@
-// In your _document.js (or _app.js if you prefer)
+// _document.js
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
@@ -6,11 +6,8 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          {/* Viewport meta tag for mobile responsiveness */}
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, minimum-scale=1"
-          />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          {/* Other meta tags */}
         </Head>
         <body>
           <Main />
