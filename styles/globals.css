@@ -4,100 +4,50 @@
 @tailwind components;
 @tailwind utilities;
 
-/*----------------------------
-  Loader - Optimized
------------------------------*/
+/* loader start */
 #outerContainer {
-  width: clamp(60px, 12vw, 100px); /* Adaptive width */
-  height: clamp(60px, 12vw, 100px); /* Adaptive height */
+  height: 100px;
+  width: 100px;
   background-color: #fff;
-  border-radius: 50%;
+  border-radius: 100%;
   overflow: hidden;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease-in-out;
 }
-
 #innerContainer {
-  width: 90%;
-  height: 90%;
+  height: 100px;
+  width: 100px;
   box-sizing: border-box;
   padding: 5px;
-  border-radius: 50%;
-}
+  /* overflow: hidden; */
 
+  border-radius: 100%;
+}
 #innerCircle {
-  width: 100%;
-  height: 100%;
+  height: 90px;
+  width: 90px;
   background: #2f2f2f;
-  border-radius: 50%;
+  border-radius: 100%;
+  /* margin: 5px; */
+  z-index: 2;
   position: relative;
 }
-
 #revolver {
   position: absolute;
-  width: 50%;
-  height: 50%;
+  height: 50px;
+  width: 50px;
   background: #008080;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-90deg);
+  top: 0;
+  z-index: 1;
+  transform: rotate(-90deg);
   animation: rotation 2s infinite linear;
-  transform-origin: 50% 50%;
-  will-change: transform;
+  transform-origin: 50px 50px;
 }
-
-/* Keyframes for Smooth Animation */
 @keyframes rotation {
   from {
-    transform: translate(-50%, -50%) rotate(0deg);
+    transform: rotate(0deg);
   }
   to {
-    transform: translate(-50%, -50%) rotate(360deg);
+    transform: rotate(359deg);
   }
 }
-
-/* GPU Acceleration for Smoother Animation */
-@supports (transform-style: preserve-3d) {
-  #revolver {
-    transform-style: preserve-3d;
-  }
-}
-
-/* Accessibility: Disable Animation for Users with Reduced Motion */
-@media (prefers-reduced-motion: reduce) {
-  #revolver {
-    animation: none;
-  }
-}
-
-/*----------------------------
-  Responsive Fixes (Optimized)
------------------------------*/
-@media (max-width: 480px) {
-  #outerContainer {
-    width: 50px;
-    height: 50px;
-  }
-
-  #revolver {
-    width: 35%;
-    height: 35%;
-  }
-}
-
-/* Large screens (better scaling on desktops) */
-@media (min-width: 1024px) {
-  #outerContainer {
-    width: clamp(80px, 10vw, 120px);
-    height: clamp(80px, 10vw, 120px);
-  }
-
-  #revolver {
-    width: 60%;
-    height: 60%;
-  }
-}
+/* loader end */
