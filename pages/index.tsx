@@ -20,28 +20,26 @@ export default function Home() {
       </Head>
       <TwoGridWithImage
         leftChild={
-          <div className="xl:py-4">
-            <div className="space-y-6 p-6 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-lg shadow-lg">
-              <p
-                className="uppercase font-bold text-6xl pt-10 xl:pt-0 text-sagegreen-600 font-heading 
+          <div className="xl:py-4 space-y-6 p-6 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-lg shadow-lg">
+            <p
+              className="uppercase font-bold text-6xl pt-10 xl:pt-0 text-sagegreen-600 font-heading 
                          bg-gradient-to-r from-green-400 to-green-600 text-transparent bg-clip-text tracking-wide"
-              >
-                {LABELS.introduction.title}
-              </p>
-              <p className="text-4xl font-light py-6 max-w-[35rem] leading-[3rem] text-gray-700 dark:text-gray-300">
-                {LABELS.introduction.text}
-              </p>
-              <div className="flex flex-wrap gap-4">
-                {LABELS.introduction.technologies.map((label) => (
-                  <span
-                    key={label}
-                    className="bg-sagegreen-400 dark:bg-sagegreen-100 text-white dark:text-black 
+            >
+              {LABELS.introduction.title}
+            </p>
+            <p className="text-4xl font-light py-6 max-w-[35rem] leading-[3rem] text-gray-700 dark:text-gray-300">
+              {LABELS.introduction.text}
+            </p>
+            <div className="flex flex-wrap gap-4">
+              {LABELS.introduction.technologies.map((label) => (
+                <span
+                  key={label}
+                  className="bg-sagegreen-400 dark:bg-sagegreen-100 text-white dark:text-black 
                              px-3 py-1 rounded-md shadow hover:scale-105 transition-transform duration-300"
-                  >
-                    {label}
-                  </span>
-                ))}
-              </div>
+                >
+                  {label}
+                </span>
+              ))}
             </div>
           </div>
         }
