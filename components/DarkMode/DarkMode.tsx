@@ -4,7 +4,7 @@ import Icon from "../Icon";
 const DarkMode: React.FC = () => {
   const [darkMode, setDarkMode] = useState<boolean>(false);
 
-  // On mount, initialize the theme from localStorage.
+  // Initialize theme from localStorage on mount.
   useEffect(() => {
     if (typeof window !== "undefined") {
       const savedTheme = localStorage.getItem("sv-theme");
@@ -14,13 +14,11 @@ const DarkMode: React.FC = () => {
     }
   }, []);
 
-  // Whenever darkMode changes, update localStorage and the document body classes.
+  // Update localStorage and document body classes whenever darkMode changes.
   useEffect(() => {
     if (typeof window !== "undefined") {
       localStorage.setItem("sv-theme", darkMode ? "dark" : "light");
       document.body.classList.toggle("dark", darkMode);
-      // When dark mode is enabled, remove the background texture;
-      // otherwise, add it back.
       document.body.classList.toggle("bg-texture", !darkMode);
     }
   }, [darkMode]);
@@ -33,12 +31,10 @@ const DarkMode: React.FC = () => {
     <button
       onClick={toggleDarkMode}
       aria-label={`Switch to ${darkMode ? "light" : "dark"} mode`}
-      className="p-2 rounded transition-colors duration-300 focus:outline-none"
+      className="flex items-center justify-center p-3 rounded-full bg-gray-200 dark:bg-gray-700 transition-colors duration-300 focus:outline-none"
     >
-      <div className="flex items-center justify-center">
-        {/* Using "sunrise" when dark mode is active, otherwise "moon" */}
-        <Icon name={darkMode ? "sunrise" : "moon"} />
-      </div>
+      {/* Increase icon size for better visibility on mobile */}
+      <Icon name={darkMode ? "sunrise" : "moon"} size="2.5rem" />
     </button>
   );
 };
