@@ -31,10 +31,17 @@ const DarkMode: React.FC = () => {
     <button
       onClick={toggleDarkMode}
       aria-label={`Switch to ${darkMode ? "light" : "dark"} mode`}
-      className="flex items-center justify-center p-3 rounded-full bg-gray-200 dark:bg-gray-700 transition-colors duration-300 focus:outline-none"
+      className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full 
+                 bg-gray-200 dark:bg-gray-700 transition-colors duration-300 
+                 focus:outline-none focus:ring-2 focus:ring-offset-2 
+                 focus:ring-gray-400 dark:focus:ring-gray-600"
     >
-      {/* Increase icon size for better visibility on mobile */}
-      <Icon name={darkMode ? "sunrise" : "moon"} size="2.5rem" />
+      {/* Icon Adjustments for Better Visibility on Mobile */}
+      <Icon
+        name={darkMode ? "sunrise" : "moon"}
+        size="2rem"
+        className="text-gray-800 dark:text-yellow-400"
+      />
     </button>
   );
 };
