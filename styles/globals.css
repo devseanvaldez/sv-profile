@@ -5,11 +5,11 @@
 @tailwind utilities;
 
 /*----------------------------
-  Loader - Start
+  Loader - Start (Optimized)
 -----------------------------*/
 #outerContainer {
-  width: max(10vw, 80px);
-  height: max(10vw, 80px);
+  width: max(12vw, 80px);
+  height: max(12vw, 80px);
   background-color: #fff;
   border-radius: 50%;
   overflow: hidden;
@@ -17,6 +17,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
 }
 
 #innerContainer {
@@ -37,8 +39,8 @@
 
 #revolver {
   position: absolute;
-  width: 55%;
-  height: 55%;
+  width: 50%;
+  height: 50%;
   background: #008080;
   top: 0;
   left: 50%;
@@ -48,6 +50,7 @@
   will-change: transform;
 }
 
+/* Keyframes for smooth animation */
 @keyframes rotation {
   from {
     transform: translateX(-50%) rotate(0deg);
@@ -57,12 +60,19 @@
   }
 }
 
+/* GPU Acceleration for Smoother Animation */
+@supports (transform-style: preserve-3d) {
+  #revolver {
+    transform-style: preserve-3d;
+  }
+}
+
 /*----------------------------
   Loader - End
 -----------------------------*/
 
 /*----------------------------
-  Responsive Fixes
+  Responsive Fixes (Optimized)
 -----------------------------*/
 @media (max-width: 480px) {
   #outerContainer {
@@ -71,7 +81,33 @@
   }
 
   #revolver {
-    width: 45%;
-    height: 45%;
+    width: 40%;
+    height: 40%;
+  }
+}
+
+/* Ultra-small screens (320px and below) */
+@media (max-width: 320px) {
+  #outerContainer {
+    width: 50px;
+    height: 50px;
+  }
+
+  #revolver {
+    width: 35%;
+    height: 35%;
+  }
+}
+
+/* Large screens (better scaling on desktops) */
+@media (min-width: 1024px) {
+  #outerContainer {
+    width: max(10vw, 100px);
+    height: max(10vw, 100px);
+  }
+
+  #revolver {
+    width: 60%;
+    height: 60%;
   }
 }

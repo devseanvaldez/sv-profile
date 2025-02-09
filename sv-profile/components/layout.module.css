@@ -1,17 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Anek+Gujarati&family=Montserrat:wght@600&family=Nunito+Sans&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /*--------------------------------------------------
-  Global Container
+  Global Container - Fully Responsive
 --------------------------------------------------*/
 .container {
-  max-width: 90%; /* Fluid width for better responsiveness */
+  max-width: 95%;
   padding: 1rem;
-  margin: 3rem auto 6rem;
+  margin: 2rem auto;
 }
 
-/* Increase container width on different screen sizes */
+/* Responsive Width Adjustments */
 @media (min-width: 320px) {
   /* Small Phones */
   .container {
-    max-width: 95%;
+    max-width: 98%;
     padding: 0.8rem;
   }
 }
@@ -20,6 +26,7 @@
   /* Large Phones */
   .container {
     max-width: 90%;
+    padding: 1rem;
   }
 }
 
@@ -52,7 +59,7 @@
 }
 
 /*--------------------------------------------------
-  Header Section
+  Header Section - Scalable Typography
 --------------------------------------------------*/
 .header {
   display: flex;
@@ -63,40 +70,52 @@
   margin-bottom: 2rem;
   position: relative;
   width: 100%;
-  padding: 1rem; /* Ensures proper spacing */
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Font Scaling for Headings */
+.header h1 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+/* Adjust Header for Small Phones */
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 1.6rem;
+  }
 }
 
 /*--------------------------------------------------
-  Theme Toggle (Moon/Sun Indicator)
+  Theme Toggle (Moon/Sun Indicator) - Responsive Fix
 --------------------------------------------------*/
 .theme-toggle {
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background-color: var(--toggle-bg, #f0f0f0);
   transition: all 0.3s ease-in-out;
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 10px;
+  right: 10px;
   z-index: 100;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Icon inside the toggle */
 .theme-toggle svg {
-  width: 26px;
-  height: 26px;
+  width: 24px;
+  height: 24px;
   fill: var(--icon-color, #333);
   transition: fill 0.3s ease-in-out;
 }
 
-/* Responsive Adjustments */
+/* Small Phones - Adjust Size */
 @media (max-width: 480px) {
-  /* Small Phones */
   .theme-toggle {
     width: 36px;
     height: 36px;
@@ -109,8 +128,8 @@
   }
 }
 
+/* Larger Screens */
 @media (min-width: 768px) {
-  /* Tablets & Small Laptops */
   .theme-toggle {
     width: 44px;
     height: 44px;
@@ -126,10 +145,10 @@
 }
 
 /*--------------------------------------------------
-  Back-to-Home Link
+  Back-to-Home Link - Consistent Spacing
 --------------------------------------------------*/
 .backToHome {
-  margin-top: 3rem;
+  margin-top: 2rem;
   text-align: center;
   transition: color 0.3s ease;
 }
@@ -139,37 +158,50 @@
 }
 
 /*--------------------------------------------------
-  Responsive Fixes
+  Skills Section - Fully Responsive Layout
 --------------------------------------------------*/
-
-/* Ensure text scales well */
-@media (max-width: 480px) {
-  /* Small Phones */
-  .header h1 {
-    font-size: 2rem;
-    text-align: center;
-  }
-}
-
-@media (min-width: 768px) {
-  /* Tablets & Small Laptops */
-  .header h1 {
-    font-size: 3rem;
-  }
-}
-
-/* Skill Tags Responsive Layout */
 .skills-container {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   justify-content: center;
+  padding: 1rem;
 }
 
-/* Fix padding issues on small screens */
+/* Skill Tag Styles */
+.skills-container span {
+  background-color: #2f2f2f;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+/* Small Phones (480px and below) */
+@media (max-width: 480px) {
+  .skills-container {
+    justify-content: flex-start;
+  }
+  .skills-container span {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+/* Large Screens */
+@media (min-width: 1024px) {
+  .skills-container {
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+
+/*--------------------------------------------------
+  Responsive Adjustments for Small Screens
+--------------------------------------------------*/
 @media (max-width: 480px) {
   .container {
     padding: 0.75rem;
-    margin: 2rem auto 4rem;
+    margin: 1.5rem auto;
   }
 }
