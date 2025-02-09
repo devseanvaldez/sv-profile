@@ -2,21 +2,21 @@
   Global Container
 --------------------------------------------------*/
 .container {
-  max-width: 36rem; /* Default maximum width (approx. 576px) */
-  padding: 0 1rem; /* Horizontal padding */
-  margin: 3rem auto 6rem; /* Top margin: 3rem, bottom margin: 6rem, centered horizontally */
+  max-width: 90%; /* More fluid width for better responsiveness */
+  padding: 0 1rem;
+  margin: 3rem auto 6rem;
 }
 
 /* Increase container width on larger screens */
 @media (min-width: 640px) {
   .container {
-    max-width: 48rem; /* Approx. 768px */
+    max-width: 48rem;
   }
 }
 
 @media (min-width: 1024px) {
   .container {
-    max-width: 60rem; /* Approx. 960px */
+    max-width: 60rem;
   }
 }
 
@@ -27,20 +27,71 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem; /* Adds space between header elements */
-  margin-bottom: 2rem; /* Adds spacing below the header */
+  justify-content: center; /* Ensures better centering */
+  gap: 1rem;
+  margin-bottom: 2rem;
+  position: relative; /* Ensures positioning doesn't break */
+  width: 100%;
+}
+
+/*--------------------------------------------------
+  Theme Toggle (Moon/Sun Indicator)
+--------------------------------------------------*/
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--toggle-bg, #f0f0f0); /* Light mode default */
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  top: 10px; /* Adjust to fit header */
+  right: 10px; /* Keep it accessible on mobile */
+  z-index: 100;
+}
+
+/* Icon inside the toggle */
+.theme-toggle svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--icon-color, #333); /* Adjusts with theme */
+  transition: fill 0.3s ease-in-out;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .theme-toggle {
+    width: 35px;
+    height: 35px;
+    top: 5px;
+    right: 5px;
+  }
+  .theme-toggle svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Dark Mode */
+[data-theme="dark"] .theme-toggle {
+  background-color: #333;
+}
+[data-theme="dark"] .theme-toggle svg {
+  fill: #f1c40f; /* Sun color in dark mode */
 }
 
 /*--------------------------------------------------
   Back-to-Home Link
 --------------------------------------------------*/
 .backToHome {
-  margin-top: 3rem; /* Spacing above the link */
+  margin-top: 3rem;
   text-align: center;
-  transition: color 0.3s ease; /* Smooth color transition on hover */
+  transition: color 0.3s ease;
 }
 
-/* Hover state for backToHome (adjust the accent color as needed) */
 .backToHome:hover {
   color: var(--accent-color, #0070f3);
 }
