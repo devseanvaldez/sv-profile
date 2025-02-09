@@ -1,15 +1,46 @@
+/*--------------------------------------------------
+  Global Container
+--------------------------------------------------*/
 .container {
-  max-width: 36rem;
-  padding: 0 1rem;
-  margin: 3rem auto 6rem;
+  max-width: 36rem; /* Default maximum width (approx. 576px) */
+  padding: 0 1rem; /* Horizontal padding */
+  margin: 3rem auto 6rem; /* Top margin: 3rem, bottom margin: 6rem, centered horizontally */
 }
 
+/* Increase container width on larger screens */
+@media (min-width: 640px) {
+  .container {
+    max-width: 48rem; /* Approx. 768px */
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 60rem; /* Approx. 960px */
+  }
+}
+
+/*--------------------------------------------------
+  Header Section
+--------------------------------------------------*/
 .header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1rem; /* Adds space between header elements */
+  margin-bottom: 2rem; /* Adds spacing below the header */
 }
 
+/*--------------------------------------------------
+  Back-to-Home Link
+--------------------------------------------------*/
 .backToHome {
-  margin: 3rem 0 0;
+  margin-top: 3rem; /* Spacing above the link */
+  text-align: center;
+  transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+/* Hover state for backToHome (adjust the accent color as needed) */
+.backToHome:hover {
+  color: var(--accent-color, #0070f3);
 }
