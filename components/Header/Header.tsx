@@ -7,7 +7,7 @@ type Props = {};
 
 const Header: React.FC<Props> = () => {
   return (
-    <header className="flex items-center justify-between p-4">
+    <header className="flex items-center justify-between">
       <Link className="text-3xl font-bold" href="/">
         {LABELS.header.logo}
       </Link>
