@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import { LABELS } from "@/enums/labels";
@@ -10,9 +10,9 @@ import Footer from "@/components/Footer/Footer";
 // Dynamically import Lottie with SSR disabled
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
-type Props = {};
+const AboutMe = () => {
+  const [expanded, setExpanded] = useState(false);
 
-const AboutMe = (props: Props) => {
   return (
     <>
       <Head>
@@ -39,17 +39,34 @@ const AboutMe = (props: Props) => {
               <Lottie animationData={happyHackerAnimation} loop={true} />
             </div>
           </div>
-          {/* About Text */}
+
+          {/* About Text with See More Button */}
           <div className="space-y-6">
-            {LABELS.about.text.map((label: string, index: number) => (
-              <p
-                key={index}
-                className="text-xl font-light max-w-[60rem] leading-[3rem] text-gray-700 dark:text-gray-300"
-              >
-                {label}
-              </p>
-            ))}
+            {LABELS.about.text
+              .slice(0, expanded ? LABELS.about.text.length : 1) // ✅ Show only 1 paragraph initially
+              .map((label: string, index: number) => (
+                <p
+                  key={index}
+                  className="text-xl font-light max-w-[60rem] leading-[3rem] text-gray-700 dark:text-gray-300"
+                >
+                  {label}
+                </p>
+              ))}
           </div>
+
+          {/* See More / See Less Button (Only UI Addition) */}
+          {LABELS.about.text.length > 1 && (
+            <div className="flex justify-center">
+              <button
+                onClick={() => setExpanded(!expanded)}
+                className="text-sagegreen-600 dark:text-sagegreen-300 font-bold underline 
+                           hover:text-sagegreen-800 dark:hover:text-sagegreen-100 transition-colors duration-300"
+              >
+                {expanded ? "See Less" : "See More"}
+              </button>
+            </div>
+          )}
+
           {/* Contact Link */}
           <div>
             <Link
@@ -60,6 +77,7 @@ const AboutMe = (props: Props) => {
               Let&apos;s connect!
             </Link>
           </div>
+
           {/* Technologies Section */}
           <div className="flex flex-col mt-10 gap-4">
             <p className="font-bold pb-1 text-2xl text-gray-800 dark:text-gray-200">
@@ -77,6 +95,7 @@ const AboutMe = (props: Props) => {
               ))}
             </div>
           </div>
+
           <Footer />
         </div>
       </TwoGridWithImage>

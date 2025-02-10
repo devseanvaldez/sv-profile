@@ -19,7 +19,7 @@ const TwoGridWithImage = ({ img, children, leftChild }: Props) => {
           <div className="absolute inset-0 z-0">
             <img
               src={img}
-              className="object-cover object-right w-full h-full min-h-[300px] sm:min-h-[400px]"
+              className="object-cover object-right w-full h-full min-h-[355px] sm:min-h-[400px]"
               alt="Background"
             />
             <div className="absolute inset-0 bg-black bg-opacity-20 dark:bg-opacity-40"></div>
