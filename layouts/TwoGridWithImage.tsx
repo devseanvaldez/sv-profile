@@ -19,28 +19,28 @@ const TwoGridWithImage = ({ img, children, leftChild }: Props) => {
           <div className="absolute inset-0 z-0">
             <img
               src={img}
-              className="object-cover object-right w-full h-full"
+              className="object-cover object-right w-full h-full min-h-[300px] sm:min-h-[400px]"
               alt="Background"
             />
-            <div className="absolute inset-0 bg-black bg-opacity-10 dark:bg-opacity-30"></div>
+            <div className="absolute inset-0 bg-black bg-opacity-20 dark:bg-opacity-40"></div>
           </div>
         )}
 
         {/* Content Layer */}
         <div className="relative z-20 flex flex-col justify-between h-full sm:p-10 p-6">
-          {/* Branding and Header (Now in a Row with Better Spacing) */}
-          <div className="flex flex-row justify-between items-center w-full sm:mb-5 mb-3">
+          {/* Branding and Header (Now with Proper Spacing) */}
+          <div className="flex flex-row justify-between items-center w-full sm:mb-6 mb-4">
             <BrandLogo /> {/* Brand Logo */}
-            <Header /> {/* Header */}
+            <Header className="ml-4 sm:ml-8" /> {/* Header - Adjusted margin */}
           </div>
 
-          {/* Left Side Content (Maintains Spacing) */}
-          <div className="relative flex-grow flex items-center justify-center sm:mt-8 mt-6 z-30">
+          {/* Left Side Content - Properly Aligned & Spaced */}
+          <div className="relative flex-grow flex items-center justify-center sm:mt-12 mt-16 z-30">
             {leftChild}
           </div>
 
-          {/* Navigation Properly Positioned */}
-          <div className="w-full flex justify-center sm:justify-start pt-6 sm:pt-10">
+          {/* Navigation - Properly Positioned */}
+          <div className="w-full flex justify-center sm:justify-start pt-8 sm:pt-12">
             <Navigation />
           </div>
         </div>

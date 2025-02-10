@@ -3,11 +3,13 @@ import Link from "next/link";
 import React from "react";
 import DarkMode from "../DarkMode";
 
-type Props = {};
+type HeaderProps = {
+  className?: string;
+};
 
-const Header: React.FC<Props> = () => {
+const Header: React.FC<HeaderProps> = ({ className }) => {
   return (
-    <header className="flex items-center justify-between">
+    <header className={`flex items-center justify-between ${className}`}>
       <Link className="text-3xl font-bold" href="/">
         {LABELS.header.logo}
       </Link>
