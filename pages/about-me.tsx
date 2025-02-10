@@ -43,7 +43,7 @@ const AboutMe = () => {
           {/* About Text with "See More" Toggle */}
           <div className="space-y-6 transition-all duration-300">
             {LABELS.about.text
-              .slice(0, expanded ? LABELS.about.text.length : 1) // ✅ Only show 1 paragraph initially
+              .slice(0, expanded ? LABELS.about.text.length : 1)
               .map((label: string, index: number) => (
                 <p
                   key={index}
@@ -95,8 +95,8 @@ const AboutMe = () => {
                 <div
                   key={index}
                   className="testimonial-card bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg 
-                             transition-all duration-300 will-change-transform hover:scale-105 border-l-4 
-                             border-green-500 dark:border-green-300"
+                   transition-all duration-300 will-change-transform hover:scale-105 border-l-4 
+                   border-green-500 dark:border-green-300"
                 >
                   <p className="text-lg italic text-gray-700 dark:text-gray-300">
                     &ldquo;{testimonial.feedback}&rdquo;
@@ -110,6 +110,22 @@ const AboutMe = () => {
                   <p className="text-gray-500 dark:text-gray-400 text-sm">
                     {testimonial.year}
                   </p>
+
+                  {/* 🎥 Video for TheOne Travel and Tours */}
+                  {testimonial.company.includes("TheOne") && (
+                    <div className="mt-4 flex justify-center">
+                      <video
+                        controls
+                        className="w-full max-w-lg rounded-lg shadow-lg"
+                      >
+                        <source
+                          src="/videos/TheOneTravelAndTours.webm"
+                          type="video/webm"
+                        />
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
