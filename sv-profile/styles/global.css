@@ -8,6 +8,15 @@ body {
   font-size: 18px;
 }
 
+/* ✅ Ensure French Cursive is Available */
+@import url("https://fonts.googleapis.com/css2?family=Parisienne&display=swap");
+
+.font-signature {
+  font-family: "Parisienne", cursive;
+  font-size: 2rem; /* Adjust size if needed */
+  font-weight: 500;
+}
+
 * {
   box-sizing: border-box;
 }

@@ -1,7 +1,9 @@
 /* Import Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Anek+Gujarati&family=Montserrat:wght@600&family=Nunito+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Permanent+Marker&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Parisienne&display=swap"); /* ✅ Added French Cursive */
 
+/* Tailwind Base */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -21,6 +23,21 @@
 .dark .font-movie-title {
   text-shadow: 4px 4px 0px rgba(255, 255, 255, 0.2),
     6px 6px 5px rgba(255, 255, 255, 0.1);
+}
+
+/*----------------------------
+  Signature Cursive Font (dev.seanvaldez)
+-----------------------------*/
+.font-signature {
+  font-family: "Parisienne", cursive;
+  font-size: 2.5rem; /* Adjust as needed */
+  font-weight: 500;
+  color: #333; /* Darker text for better visibility */
+}
+
+/* Dark Mode */
+.dark .font-signature {
+  color: white;
 }
 
 /*----------------------------

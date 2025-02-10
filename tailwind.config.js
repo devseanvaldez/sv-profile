@@ -12,6 +12,7 @@ module.exports = {
         sans: ["Nunito Sans", "sans-serif"],
         heading: ["Montserrat", "sans-serif"],
         footer: ["Anek Gujarati", "sans-serif"],
+        signature: ["Parisienne", "Dancing Script", "Great Vibes", "cursive"], // ✨ Elegant French cursive
       },
       colors: {
         transparent: "transparent",

@@ -1,29 +1,26 @@
 import React, { useEffect, useState } from "react";
 
 const BrandLogo = () => {
-  const [darkMode, setDarkMode] = useState(false);
-
-  // Initialize theme from localStorage on mount.
-  useEffect(() => {
+  const [darkMode, setDarkMode] = useState(() => {
     if (typeof window !== "undefined") {
-      const savedTheme = localStorage.getItem("sv-theme");
-      if (savedTheme) {
-        setDarkMode(savedTheme === "dark");
-      }
+      return localStorage.getItem("sv-theme") === "dark";
     }
-  }, []);
+    return false;
+  });
 
-  // Update localStorage and document body classes whenever darkMode changes.
   useEffect(() => {
     if (typeof window !== "undefined") {
-      localStorage.setItem("sv-theme", darkMode ? "dark" : "light");
       document.body.classList.toggle("dark", darkMode);
       document.body.classList.toggle("bg-texture", !darkMode);
     }
   }, [darkMode]);
 
   const toggleDarkMode = () => {
-    setDarkMode((prevMode) => !prevMode);
+    setDarkMode((prevMode) => {
+      const newMode = !prevMode;
+      localStorage.setItem("sv-theme", newMode ? "dark" : "light");
+      return newMode;
+    });
   };
 
   return (
@@ -32,8 +29,12 @@ const BrandLogo = () => {
       aria-label="Toggle Dark Mode"
       className="focus:outline-none transition-transform duration-300 hover:scale-110"
     >
-      <div className="flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-r from-green-400 to-green-600 dark:from-gray-700 dark:to-gray-900 drop-shadow-lg p-2 sm:p-3">
-        <span className="text-white text-4xl sm:text-5xl font-extrabold font-movie-title leading-none tracking-wide">
+      <div
+        className="flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full 
+                      bg-gradient-to-r from-green-400 to-green-600 dark:from-gray-700 dark:to-gray-900 
+                      shadow-lg p-2 sm:p-3"
+      >
+        <span className="text-white text-3xl sm:text-4xl font-extrabold font-movie-title leading-none tracking-wide">
           SV
         </span>
       </div>
