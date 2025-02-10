@@ -10,8 +10,8 @@ const Navigation: React.FC = () => {
     router.pathname === "/about-me" || router.pathname === "/contact";
 
   return (
-    <nav className="text-xl">
-      <ul className="flex justify-center sm:justify-start items-center gap-x-4 sm:gap-x-12 font-light text-base sm:text-lg">
+    <nav className="text-lg sm:text-xl">
+      <ul className="flex flex-wrap justify-center sm:justify-start items-center gap-x-6 sm:gap-x-12 font-light">
         {[
           { name: "Home", path: "/" },
           { name: "About Me", path: "/about-me" },
@@ -20,7 +20,7 @@ const Navigation: React.FC = () => {
           <li key={item.path} className="relative">
             <Link
               href={item.path}
-              className={`relative px-4 py-2 transition-all duration-300 rounded-md
+              className={`relative px-3 py-1 transition-all duration-300 rounded-md
                 ${
                   router.pathname === item.path
                     ? "text-green-700 dark:text-green-400 font-semibold bg-green-100 dark:bg-green-900"
