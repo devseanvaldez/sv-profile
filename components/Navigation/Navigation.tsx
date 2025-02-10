@@ -11,7 +11,7 @@ const Navigation: React.FC = () => {
 
   return (
     <nav className="text-xl">
-      <ul className="flex flex-wrap justify-center sm:justify-start items-center gap-x-6 sm:gap-x-12 gap-y-3 sm:gap-y-0 font-light">
+      <ul className="flex justify-center sm:justify-start items-center gap-x-4 sm:gap-x-12 font-light text-base sm:text-lg">
         {[
           { name: "Home", path: "/" },
           { name: "About Me", path: "/about-me" },
