@@ -5,42 +5,46 @@ import CircularLoader from "@/components/CircularLoader/CircularLoader";
 import TwoGridWithImage from "@/layouts/TwoGridWithImage";
 import Footer from "@/components/Footer/Footer";
 
-type Props = {};
-
 const FORM_API_KEY = "https://api.apispreadsheets.com/data/CDINDwxFe40SISDQ/";
 
-const Contact = (props: Props) => {
+const Contact = () => {
   const [isSending, setIsSending] = useState(false);
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    if (isSending) {
-      return;
-    }
+    if (isSending) return;
 
     setIsSending(true);
 
-    fetch(FORM_API_KEY, {
-      method: "POST",
-      body: JSON.stringify({
-        data: {
-          email: email,
-          message: message,
-          full_name: fullName,
-        },
-      }),
-    }).then((res) => {
-      if (res.status === 201) {
-        // SUCCESS: Optionally clear fields or show a success message.
+    try {
+      const response = await fetch(FORM_API_KEY, {
+        method: "POST",
+        body: JSON.stringify({
+          data: {
+            email: email,
+            message: message,
+            full_name: fullName,
+          },
+        }),
+        headers: { "Content-Type": "application/json" },
+      });
+
+      if (response.status === 201) {
+        alert("Message sent successfully!");
+        setFullName("");
+        setEmail("");
+        setMessage("");
       } else {
-        // ERROR: Optionally display an error message.
+        alert("Failed to send message. Please try again.");
       }
+    } catch (error) {
+      alert("An error occurred. Please try again later.");
+    } finally {
       setIsSending(false);
-    });
+    }
   };
 
   return (
@@ -50,23 +54,23 @@ const Contact = (props: Props) => {
         <meta name="profile" content="sv" />
       </Head>
       <TwoGridWithImage img="/images/contact3.jpg">
-        {/* Outer container with glassmorphism, rounded corners, shadow, and a hover scale effect */}
+        {/* Glassmorphism Styled Container */}
         <div
-          className="flex flex-col gap-8 lg:p-20 pt-6 pb-20 p-4 font-extralight order-2
-                     bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm rounded-lg shadow-xl
-                     transition-transform duration-300 hover:scale-105"
+          className="flex flex-col gap-8 lg:p-16 p-6 font-light order-2 
+                     bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-xl shadow-xl 
+                     transition-all duration-300 will-change-transform hover:scale-[1.00]"
         >
-          {/* Gradient Title with drop shadow */}
+          {/* Title */}
           <h1
-            className="font-bold font-heading uppercase text-5xl sm:pb-2
+            className="font-bold font-heading uppercase text-5xl sm:pb-2 text-center
                        bg-gradient-to-r from-green-400 to-green-600 text-transparent bg-clip-text drop-shadow-md"
           >
             {LABELS.contact.title}
           </h1>
 
-          {/* Introductory Text */}
-          <div className="space-y-4">
-            {LABELS.contact.text.map((label: string, index: number) => (
+          {/* Contact Description */}
+          <div className="space-y-4 text-center">
+            {LABELS.contact.text.map((label, index) => (
               <p
                 key={index}
                 className="lg:text-xl text-gray-700 dark:text-gray-300"
@@ -76,18 +80,18 @@ const Contact = (props: Props) => {
             ))}
           </div>
 
-          {/* Contact Details */}
-          <div className="flex flex-col gap-4 pt-6 lg:text-xl">
-            <p className="font-bold lg:text-xl">
-              <span className="font-normal text-sagegreen-600 dark:text-sagegreen-100 inline-block w-32">
+          {/* Contact Info */}
+          <div className="flex flex-col items-center gap-4 pt-6 lg:text-xl">
+            <p className="font-bold">
+              <span className="font-normal text-green-600 dark:text-green-300">
                 Email:
-              </span>
+              </span>{" "}
               {LABELS.contact.email}
             </p>
-            <p className="font-bold inline-block">
-              <span className="font-normal text-sagegreen-600 dark:text-sagegreen-100 inline-block w-32">
+            <p className="font-bold">
+              <span className="font-normal text-green-600 dark:text-green-300">
                 Telephone:
-              </span>
+              </span>{" "}
               {LABELS.contact.number}
             </p>
           </div>
@@ -100,7 +104,10 @@ const Contact = (props: Props) => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <input
                 type="text"
-                className="border rounded-md px-4 py-2 w-full lg:text-xl dark:bg-custom-gray-900 dark:border-transparent dark:text-white dark:bg-opacity-30"
+                className="border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 w-full 
+                           text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white 
+                           focus:ring-2 focus:ring-green-400 dark:focus:ring-green-300 
+                           transition-all duration-300"
                 placeholder="John Doe"
                 name="full_name"
                 value={fullName}
@@ -109,7 +116,10 @@ const Contact = (props: Props) => {
               />
               <input
                 type="email"
-                className="border rounded-md px-4 py-2 w-full lg:text-xl dark:bg-custom-gray-900 dark:border-transparent dark:text-white dark:bg-opacity-30"
+                className="border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 w-full 
+                           text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white 
+                           focus:ring-2 focus:ring-green-400 dark:focus:ring-green-300 
+                           transition-all duration-300"
                 placeholder="johndoe@gmail.com"
                 name="email"
                 value={email}
@@ -118,8 +128,11 @@ const Contact = (props: Props) => {
               />
             </div>
             <textarea
-              className="border rounded-md px-4 py-2 w-full lg:text-xl dark:bg-custom-gray-900 dark:border-transparent dark:text-white dark:bg-opacity-30 resize-none"
-              placeholder="Message..."
+              className="border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 w-full 
+                         text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white 
+                         focus:ring-2 focus:ring-green-400 dark:focus:ring-green-300 
+                         transition-all duration-300 resize-none"
+              placeholder="Your message..."
               rows={4}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
@@ -127,12 +140,15 @@ const Contact = (props: Props) => {
             />
             <button
               type="submit"
-              className="bg-sagegreen-600 text-white font-heading p-2 rounded-md shadow-lg lg:text-xl transition-colors duration-300 hover:bg-sagegreen-700"
+              className="bg-green-600 text-white font-bold p-3 rounded-md shadow-lg text-lg 
+                         transition-all duration-300 hover:bg-green-700 focus:ring-2 
+                         focus:ring-offset-2 focus:ring-green-500 dark:focus:ring-green-300"
               disabled={isSending}
             >
-              {isSending ? <CircularLoader /> : "Submit"}
+              {isSending ? <CircularLoader /> : "Send Message"}
             </button>
           </form>
+
           <Footer />
         </div>
       </TwoGridWithImage>

@@ -2,19 +2,22 @@ import React, { useEffect, useState } from "react";
 import Icon from "../Icon";
 
 const DarkMode: React.FC = () => {
-  const [darkMode, setDarkMode] = useState<boolean>(false);
+  const [darkMode, setDarkMode] = useState<boolean>(() => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("sv-theme") === "dark";
+    }
+    return false; // Default to light mode
+  });
 
-  // Initialize theme from localStorage on mount.
+  // Apply theme to the document immediately on every render
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const savedTheme = localStorage.getItem("sv-theme");
-      if (savedTheme) {
-        setDarkMode(savedTheme === "dark");
-      }
+      document.body.classList.toggle("dark", darkMode);
+      document.body.classList.toggle("bg-texture", !darkMode);
     }
   }, []);
 
-  // Update localStorage and document body classes whenever darkMode changes.
+  // Update theme whenever darkMode state changes
   useEffect(() => {
     if (typeof window !== "undefined") {
       localStorage.setItem("sv-theme", darkMode ? "dark" : "light");
@@ -31,16 +34,19 @@ const DarkMode: React.FC = () => {
     <button
       onClick={toggleDarkMode}
       aria-label={`Switch to ${darkMode ? "light" : "dark"} mode`}
+      role="switch"
+      aria-checked={darkMode}
       className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full 
-                 bg-gray-200 dark:bg-gray-700 transition-colors duration-300 
+                 bg-gray-200 dark:bg-gray-700 transition-all duration-300 ease-in-out 
                  focus:outline-none focus:ring-2 focus:ring-offset-2 
-                 focus:ring-gray-400 dark:focus:ring-gray-600"
+                 focus:ring-gray-400 dark:focus:ring-gray-600 
+                 hover:scale-105 active:scale-95"
     >
-      {/* Icon Adjustments for Better Visibility on Mobile */}
+      {/* Smooth Icon Transition */}
       <Icon
         name={darkMode ? "sunrise" : "moon"}
         size="2rem"
-        className="text-gray-800 dark:text-yellow-400"
+        className="text-gray-800 dark:text-yellow-400 transition-colors duration-300 ease-in-out"
       />
     </button>
   );

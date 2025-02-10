@@ -36,6 +36,35 @@ export const LABELS = {
       "Effective communication is essential to me, as it helps ensure that I understand task requirements efficiently.",
       "Does your project align perfectly with my skills?",
     ],
+    testimonials: [
+      {
+        name: "Jerome Martínez",
+        role: "Upwork Client",
+        company: "TheOne Travel and Tours",
+        year: "2023",
+        feedback:
+          "Sean is a highly skilled frontend developer who understands UI/UX deeply. He delivered a sleek and professional design that exceeded our expectations. With an eye for detail as Frontend Developer is a plus advantage.",
+      },
+      {
+        name: "Joseph Alde Almajeda",
+        role: "Lead Developer",
+        company: "Monde Nissin Corporation",
+        year: "2018-2022",
+        feedback:
+          "Working with Sean was an absolute pleasure. His problem-solving skills and attention to detail made a significant impact on our projects. His ability to troubleshoot complex issues and provide efficient solutions is impressive.",
+      },
+    ],
+    technologies: [
+      "ReactJS",
+      "NextJS",
+      "Redux Toolkit",
+      "Tailwind CSS",
+      "JavaScript",
+      "Git",
+      "Axios",
+      "Material-UI",
+      "Reactstrap",
+    ],
   },
   contact: {
     title: "Contact",
