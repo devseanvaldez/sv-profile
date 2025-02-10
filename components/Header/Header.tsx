@@ -12,9 +12,9 @@ const Header: React.FC<Props> = () => {
         {LABELS.header.logo}
       </Link>
       {/* Wrap DarkMode in a div with a left margin */}
-      <div className="ml-2">
+      {/* <div className="ml-2">
         <DarkMode />
-      </div>
+      </div> */}
     </header>
   );
 };
