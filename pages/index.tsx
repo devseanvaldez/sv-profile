@@ -22,8 +22,7 @@ export default function Home() {
         leftChild={
           <div
             className="xl:py-4 space-y-6 p-6 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm 
-                      rounded-xl shadow-xl transition-all duration-300 will-change-transform 
-                      hover:scale-[1.02]"
+                      rounded-xl shadow-xl hover:scale-[1.02] transition-transform duration-300"
           >
             <p
               className="uppercase font-bold text-6xl pt-10 xl:pt-0 text-sagegreen-600 font-heading 
