@@ -47,7 +47,7 @@ export default function Home() {
         <div className="min-h-screen order-2 sm:p-10 p-4 space-y-12">
           {/* Enhanced CONTENT headline */}
           <p
-            className="uppercase font-heading text-5xl xl:text-left mb-8 tracking-wider 
+            className="uppercase font-heading text-5xl text-center mb-8 tracking-wider 
                        bg-gradient-to-r from-green-400 to-green-600 text-transparent bg-clip-text 
                        drop-shadow-lg"
           >
