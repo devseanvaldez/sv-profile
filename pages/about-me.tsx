@@ -39,7 +39,6 @@ const AboutMe = () => {
               <Lottie animationData={happyHackerAnimation} loop={true} />
             </div>
           </div>
-
           {/* About Text with "See More" Toggle */}
           <div className="space-y-6 transition-all duration-300">
             {LABELS.about.text
@@ -53,7 +52,6 @@ const AboutMe = () => {
                 </p>
               ))}
           </div>
-
           {/* See More / See Less Button */}
           {LABELS.about.text.length > 1 && (
             <div className="flex justify-center">
@@ -66,7 +64,6 @@ const AboutMe = () => {
               </button>
             </div>
           )}
-
           {/* Technologies Section */}
           <div className="flex flex-col mt-10 gap-4">
             <p className="font-bold pb-2 text-2xl text-gray-800 dark:text-gray-200 text-center">
@@ -85,6 +82,22 @@ const AboutMe = () => {
             </div>
           </div>
 
+          {/* Let's Connect Button (Under Technologies) */}
+          <div className="flex flex-col items-center mt-8 space-y-2">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full shadow-lg text-lg font-bold uppercase 
+               tracking-wide transition-all duration-300 ease-in-out 
+               bg-gradient-to-r from-green-500 to-green-600 text-white dark:from-green-400 dark:to-green-500 dark:text-gray-900
+               hover:scale-105 transform"
+            >
+              🤝 Let’s Connect
+            </Link>
+            <p className="text-gray-600 dark:text-gray-300 text-sm">
+              Have a project? Let’s collaborate!
+            </p>
+          </div>
+
           {/* Testimonials Section */}
           <div className="mt-10">
             <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-200 text-center mb-6">
@@ -95,8 +108,8 @@ const AboutMe = () => {
                 <div
                   key={index}
                   className="testimonial-card bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg 
-                   transition-all duration-300 will-change-transform hover:scale-105 border-l-4 
-                   border-green-500 dark:border-green-300"
+                 transition-all duration-300 will-change-transform hover:scale-105 border-l-4 
+                 border-green-500 dark:border-green-300"
                 >
                   <p className="text-lg italic text-gray-700 dark:text-gray-300">
                     &ldquo;{testimonial.feedback}&rdquo;
@@ -129,18 +142,19 @@ const AboutMe = () => {
                 </div>
               ))}
             </div>
-          </div>
 
-          {/* Let's Connect Button */}
-          <div className="flex justify-center mt-8">
-            <Link
-              href="/contact"
-              className="inline-block bg-green-500 dark:bg-green-600 text-white px-6 py-3 rounded-lg 
-                         shadow-lg text-lg font-bold uppercase tracking-wide hover:bg-green-600 
-                         dark:hover:bg-green-700 transition-all duration-300"
-            >
-              Let&apos;s Connect!
-            </Link>
+            {/* NEW: Reach Out Button at the End of Testimonials */}
+            <div className="flex justify-center mt-10">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full shadow-lg text-lg font-bold uppercase 
+                 tracking-wide transition-all duration-300 ease-in-out 
+                 bg-gradient-to-r from-blue-500 to-blue-600 text-white dark:from-blue-400 dark:to-blue-500 dark:text-gray-900
+                 hover:scale-105 transform"
+              >
+                📩 Reach Out Now
+              </Link>
+            </div>
           </div>
 
           <Footer />
