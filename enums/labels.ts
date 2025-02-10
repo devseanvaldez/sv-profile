@@ -43,7 +43,7 @@ export const LABELS = {
         company: "TheOne Travel and Tours, UAE",
         year: "2023",
         feedback:
-          "Sean is a highly skilled frontend developer who understands UI/UX deeply. He delivered a sleek and professional design that exceeded our expectations. With an eye for detail as Frontend Developer is a plus advantage.",
+          "Sean is a skilled frontend developer who understands UI/UX deeply. He delivered a sleek and professional design that exceeded our expectations. With an eye for detail as Frontend Developer is a plus advantage.",
       },
       {
         name: "Joseph Alde Almajeda",
