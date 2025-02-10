@@ -43,7 +43,7 @@ const AboutMe = () => {
           {/* About Text with "See More" Toggle */}
           <div className="space-y-6 transition-all duration-300">
             {LABELS.about.text
-              .slice(0, expanded ? LABELS.about.text.length : 2) // ✅ Show 2 paragraphs initially
+              .slice(0, expanded ? LABELS.about.text.length : 1) // ✅ Only show 1 paragraph initially
               .map((label: string, index: number) => (
                 <p
                   key={index}
@@ -55,7 +55,7 @@ const AboutMe = () => {
           </div>
 
           {/* See More / See Less Button */}
-          {LABELS.about.text.length > 2 && (
+          {LABELS.about.text.length > 1 && (
             <div className="flex justify-center">
               <button
                 onClick={() => setExpanded(!expanded)}
