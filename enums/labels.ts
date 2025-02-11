@@ -73,7 +73,7 @@ export const LABELS = {
       "I would be happy to help advise you on integrating your next web project.",
     ],
     email: "dev.seanvaldez@gmail.com",
-    number: "+63 947 979 6562",
+    number: "(+63) 947 979 6562",
   },
   content: {
     title: "Content",

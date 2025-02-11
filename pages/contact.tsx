@@ -12,36 +12,67 @@ const Contact = () => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [copied, setCopied] = useState(false);
 
+  // Copy phone number to clipboard
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(LABELS.contact.number);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000); // Reset "Copied!" after 2 seconds
+  };
+
+  // Handle form submission
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (isSending) return;
 
     setIsSending(true);
 
+    // Get current date and time in ISO format
+    const dateTime = new Date().toISOString(); // Ensures API compatibility
+
     try {
       const response = await fetch(FORM_API_KEY, {
         method: "POST",
-        body: JSON.stringify({
-          data: {
-            email: email,
-            message: message,
-            full_name: fullName,
-          },
-        }),
         headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          data: [
+            {
+              full_name: fullName || "Anonymous",
+              email: email || "No Email",
+              message: message || "No Message",
+              dateTime: dateTime, // Store date and time in the API Spreadsheet
+            },
+          ],
+        }),
       });
 
-      if (response.status === 201) {
-        alert("Message sent successfully!");
+      if (response.ok) {
+        alert(
+          `✅ Message Sent Successfully!\n\n📅 Date: ${new Date(
+            dateTime
+          ).toLocaleString("en-US", {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+          })}\n📝 ${
+            fullName
+              ? `Thank you, ${fullName}! I'll respond to you soon.`
+              : "Thank you! I'll respond to you as soon as possible."
+          }`
+        );
         setFullName("");
         setEmail("");
         setMessage("");
       } else {
-        alert("Failed to send message. Please try again.");
+        alert("❌ Failed to send message. Please try again.");
       }
     } catch (error) {
-      alert("An error occurred. Please try again later.");
+      alert("⚠️ An error occurred. Please try again later.");
     } finally {
       setIsSending(false);
     }
@@ -57,7 +88,7 @@ const Contact = () => {
         {/* Glassmorphism Styled Container */}
         <div
           className="flex flex-col gap-8 lg:p-16 p-6 font-light order-2 
-                     bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-xl shadow-xl 
+                     bg-white/80 dark:bg-gray-900/50 backdrop-blur-xl rounded-xl shadow-xl 
                      transition-all duration-300 will-change-transform hover:scale-[1.00]"
         >
           {/* Title */}
@@ -82,33 +113,52 @@ const Contact = () => {
 
           {/* Contact Info */}
           <div className="flex flex-col items-center gap-4 pt-6 lg:text-xl">
-            <p className="font-bold">
+            <p className="font-bold flex items-center gap-2">
               <span className="font-normal text-green-600 dark:text-green-300">
                 Email:
               </span>{" "}
-              {LABELS.contact.email}
+              <a
+                href={`mailto:${LABELS.contact.email}`}
+                className="text-blue-600 dark:text-[#60a5fa] hover:text-blue-500 dark:hover:text-[#93c5fd] 
+               transition-all duration-300 ease-in-out transform hover:scale-105"
+              >
+                {LABELS.contact.email}
+              </a>
             </p>
-            <p className="font-bold">
+
+            <p
+              className="font-bold flex items-center gap-2 cursor-pointer"
+              onClick={copyToClipboard}
+            >
               <span className="font-normal text-green-600 dark:text-green-300">
                 Telephone:
               </span>{" "}
-              {LABELS.contact.number}
+              <span className="text-black dark:text-white hover:text-green-500 dark:hover:text-[#FACC15] transition">
+                {LABELS.contact.number}
+              </span>
+              {copied && (
+                <span className="text-green-600 dark:text-green-400 text-sm ml-2 transition-opacity duration-500">
+                  Copied!
+                </span>
+              )}
             </p>
           </div>
 
           {/* Contact Form */}
           <form
-            className="flex flex-col gap-y-4 mt-10 lg:text-xl"
+            className="flex flex-col gap-y-6 mt-10 lg:text-xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-xl 
+             shadow-xl rounded-xl p-6 lg:p-10 border border-gray-200 dark:border-gray-700"
             onSubmit={onSubmit}
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Input Fields */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <input
                 type="text"
-                className="border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 w-full 
-                           text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white 
-                           focus:ring-2 focus:ring-green-400 dark:focus:ring-green-300 
-                           transition-all duration-300"
-                placeholder="John Doe"
+                className="border border-gray-300 dark:border-gray-600 rounded-lg px-5 py-4 w-full 
+                 text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white 
+                 focus:ring-4 focus:ring-green-400 dark:focus:ring-green-300 transition-all 
+                 placeholder-gray-400 dark:placeholder-gray-500 shadow-md"
+                placeholder="Enter your full name"
                 name="full_name"
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
@@ -116,33 +166,38 @@ const Contact = () => {
               />
               <input
                 type="email"
-                className="border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 w-full 
-                           text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white 
-                           focus:ring-2 focus:ring-green-400 dark:focus:ring-green-300 
-                           transition-all duration-300"
-                placeholder="johndoe@gmail.com"
+                className="border border-gray-300 dark:border-gray-600 rounded-lg px-5 py-4 w-full 
+                 text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white 
+                 focus:ring-4 focus:ring-green-400 dark:focus:ring-green-300 transition-all 
+                 placeholder-gray-400 dark:placeholder-gray-500 shadow-md"
+                placeholder="Enter your email"
                 name="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 disabled={isSending}
               />
             </div>
+
+            {/* Message Field */}
             <textarea
-              className="border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 w-full 
-                         text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white 
-                         focus:ring-2 focus:ring-green-400 dark:focus:ring-green-300 
-                         transition-all duration-300 resize-none"
-              placeholder="Your message..."
-              rows={4}
+              className="border border-gray-300 dark:border-gray-600 rounded-lg px-5 py-4 w-full 
+               text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white 
+               focus:ring-4 focus:ring-green-400 dark:focus:ring-green-300 transition-all 
+               placeholder-gray-400 dark:placeholder-gray-500 shadow-md resize-none"
+              placeholder="Write your message here..."
+              rows={5}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               disabled={isSending}
             />
+
+            {/* Submit Button */}
             <button
               type="submit"
-              className="bg-green-600 text-white font-bold p-3 rounded-md shadow-lg text-lg 
-                         transition-all duration-300 hover:bg-green-700 focus:ring-2 
-                         focus:ring-offset-2 focus:ring-green-500 dark:focus:ring-green-300"
+              className="bg-green-600 text-white font-bold py-4 px-6 rounded-lg shadow-lg text-lg 
+               transition-all duration-300 hover:bg-green-700 hover:scale-105 
+               focus:ring-4 focus:ring-offset-2 focus:ring-green-500 dark:focus:ring-green-300
+               flex justify-center items-center"
               disabled={isSending}
             >
               {isSending ? <CircularLoader /> : "Send Message"}

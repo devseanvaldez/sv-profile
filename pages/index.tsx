@@ -21,7 +21,7 @@ export default function Home() {
       <TwoGridWithImage
         leftChild={
           <div
-            className="xl:py-4 space-y-6 p-6 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm 
+            className="xl:py-4 space-y-6 p-6 bg-white/80 dark:bg-gray-900/50 backdrop-blur-xl 
                       rounded-xl shadow-xl hover:scale-[1.02] transition-transform duration-300"
           >
             <p

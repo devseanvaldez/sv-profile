@@ -44,7 +44,7 @@ const AboutMe = () => {
         {/* Main Container with Glassmorphism Effect */}
         <div
           className="flex flex-col gap-8 text-xl lg:p-16 p-6 font-light leading-8 order-2 
-                     bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-xl shadow-xl 
+                     bg-white/80 dark:bg-gray-900/50 backdrop-blur-xl rounded-xl shadow-xl 
                      transition-all duration-300 will-change-transform hover:scale-[1.00]"
         >
           {/* Title & Animation */}
