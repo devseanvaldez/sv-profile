@@ -10,8 +10,29 @@ import Footer from "@/components/Footer/Footer";
 // Dynamically import Lottie with SSR disabled
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
+// ⭐ Helper Function to Render Star Ratings
+const renderStars = (rating: number) => {
+  const fullStars = Math.floor(rating);
+  const halfStar = rating % 1 !== 0;
+  const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+
+  return (
+    <span className="text-yellow-400 text-2xl">
+      {"★".repeat(fullStars)}
+      {halfStar && "☆"}
+      {"☆".repeat(emptyStars)}
+    </span>
+  );
+};
+
 const AboutMe = () => {
   const [expanded, setExpanded] = useState(false);
+
+  // Testimonials with ratings
+  const testimonialsWithRatings = [
+    { ...LABELS.about.testimonials[0], rating: 5 }, // Jerome - 5 stars
+    { ...LABELS.about.testimonials[1], rating: 4.5 }, // Joseph Alde - 4.5 stars
+  ];
 
   return (
     <>
@@ -20,18 +41,18 @@ const AboutMe = () => {
         <meta name="profile" content="sv" />
       </Head>
       <TwoGridWithImage img="/images/sv.JPG">
-        {/* Main container with glassmorphism effect */}
+        {/* Main Container with Glassmorphism Effect */}
         <div
           className="flex flex-col gap-8 text-xl lg:p-16 p-6 font-light leading-8 order-2 
-                        bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-xl shadow-xl 
-                        transition-all duration-300 will-change-transform hover:scale-[1.00]"
+                     bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-xl shadow-xl 
+                     transition-all duration-300 will-change-transform hover:scale-[1.00]"
         >
           {/* Title & Animation */}
           <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
             <h1
               className="font-bold text-5xl uppercase font-heading tracking-wide 
-                           bg-gradient-to-r from-green-400 to-green-600 text-transparent bg-clip-text 
-                           drop-shadow-md text-center lg:text-left"
+                         bg-gradient-to-r from-green-400 to-green-600 text-transparent bg-clip-text 
+                         drop-shadow-md text-center lg:text-left"
             >
               {LABELS.about.title}
             </h1>
@@ -39,6 +60,7 @@ const AboutMe = () => {
               <Lottie animationData={happyHackerAnimation} loop={true} />
             </div>
           </div>
+
           {/* About Text with "See More" Toggle */}
           <div className="space-y-6 transition-all duration-300">
             {LABELS.about.text
@@ -52,6 +74,7 @@ const AboutMe = () => {
                 </p>
               ))}
           </div>
+
           {/* See More / See Less Button */}
           {LABELS.about.text.length > 1 && (
             <div className="flex justify-center">
@@ -64,6 +87,7 @@ const AboutMe = () => {
               </button>
             </div>
           )}
+
           {/* Technologies Section */}
           <div className="flex flex-col mt-10 gap-4">
             <p className="font-bold pb-2 text-2xl text-gray-800 dark:text-gray-200 text-center">
@@ -104,12 +128,12 @@ const AboutMe = () => {
               Testimonials
             </h2>
             <div className="space-y-6">
-              {LABELS.about.testimonials.map((testimonial, index) => (
+              {testimonialsWithRatings.map((testimonial, index) => (
                 <div
                   key={index}
                   className="testimonial-card bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg 
-                 transition-all duration-300 will-change-transform hover:scale-105 border-l-4 
-                 border-green-500 dark:border-green-300"
+                           transition-all duration-300 will-change-transform hover:scale-105 border-l-4 
+                           border-green-500 dark:border-green-300"
                 >
                   <p className="text-lg italic text-gray-700 dark:text-gray-300">
                     &ldquo;{testimonial.feedback}&rdquo;
@@ -123,6 +147,8 @@ const AboutMe = () => {
                   <p className="text-gray-500 dark:text-gray-400 text-sm">
                     {testimonial.year}
                   </p>
+                  {/* ⭐ Star Rating */}
+                  <p className="mt-2">{renderStars(testimonial.rating)}</p>
 
                   {/* 🎥 Video for TheOne Travel and Tours */}
                   {testimonial.company.includes("TheOne") && (
@@ -142,19 +168,19 @@ const AboutMe = () => {
                 </div>
               ))}
             </div>
+          </div>
 
-            {/* NEW: Reach Out Button at the End of Testimonials */}
-            <div className="flex justify-center mt-10">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full shadow-lg text-lg font-bold uppercase 
-                 tracking-wide transition-all duration-300 ease-in-out 
-                 bg-gradient-to-r from-blue-500 to-blue-600 text-white dark:from-blue-400 dark:to-blue-500 dark:text-gray-900
-                 hover:scale-105 transform"
-              >
-                📩 Reach Out Now
-              </Link>
-            </div>
+          {/* Reach Out Button */}
+          <div className="flex justify-center mt-10">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full shadow-lg text-lg font-bold uppercase 
+               tracking-wide transition-all duration-300 ease-in-out 
+               bg-gradient-to-r from-blue-500 to-blue-600 text-white dark:from-blue-400 dark:to-blue-500 dark:text-gray-900
+               hover:scale-105 transform"
+            >
+              📩 Reach Out Now
+            </Link>
           </div>
 
           <Footer />
