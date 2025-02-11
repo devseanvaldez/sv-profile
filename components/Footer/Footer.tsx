@@ -6,10 +6,8 @@ const Footer: React.FC = () => {
       <p>
         &copy; {new Date().getFullYear()} -{" "}
         <a
-          href="https://mail.google.com/mail/?view=cm&fs=1&to=dev.seanvaldez@gmail.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:underline transition-colors duration-300"
+          href={`mailto:dev.seanvaldez@gmail.com`}
+          className="hover:underline text-sagegreen-900 dark:text-sagegreen-100 hover:text-sagegreen-700 dark:hover:text-sagegreen-300 transition"
         >
           dev.seanvaldez@gmail.com
         </a>
