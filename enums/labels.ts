@@ -9,7 +9,7 @@ export const LABELS = {
   },
   introduction: {
     title: "Sean P. Valdez",
-    text: "3 years of working experience as a frontend developer",
+    text: "3 years of experience in frontend development, proficient in React, Next.js, and modern UI frameworks.",
     content: [
       "Since 2020, I have built websites for businesses and contributed to in-house projects.",
       "I have redesigned legacy websites into modern, responsive React/NextJS applications while implementing new features and functionalities to meet client requirements.",
@@ -30,7 +30,7 @@ export const LABELS = {
   about: {
     title: "About Me",
     text: [
-      "Hi, I'm Sean. In 2020, I started as a junior-level developer at a logistics company in the Philippines. I contributed to in-house projects such as logistics dashboards that integrated GPS and Google Maps with our backend services, providing real-time data via sockets. During a brief period on Upwork, I also gained experience building websites for businesses, including a travel agency app used in the UAE. This experience enabled me to redesign legacy websites into modern React/NextJS applications that incorporate new features and functionalities tailored to client requirements.",
+      "Hi, I'm Sean. In 2020, I started as a junior-level frontend developer at a logistics company in the Philippines. I contributed to in-house projects such as logistics dashboards that integrated GPS and Google Maps with our backend services, providing real-time data via sockets. During a brief period on Upwork, I also gained experience building websites for businesses, including a travel agency app used in the UAE. This experience enabled me to redesign legacy websites into modern React/NextJS applications that incorporate new features and functionalities tailored to client requirements.",
       "The primary technologies I use include ReactJS, NextJS, TailwindCSS, and Git. I also work with libraries such as Redux Toolkit and Axios, and UI frameworks like Material-UI and Reactstrap, among others.",
       "I continuously hone my skills and possess strong problem-solving abilities. I ensure that my code is optimized and passes performance tests, frequently using Lighthouse to identify and address performance bottlenecks.",
       "Effective communication is essential to me, as it helps ensure that I understand task requirements efficiently.",
