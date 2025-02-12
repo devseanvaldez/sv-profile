@@ -61,8 +61,8 @@ const Contact = () => {
             second: "2-digit",
           })}\n📝 ${
             fullName
-              ? `Thank you, ${fullName}! I'll respond to you soon.`
-              : "Thank you! I'll respond to you as soon as possible."
+              ? `Thank you, ${fullName}! Looking forward to chatting with you soon!`
+              : "Thank you! Looking forward to chatting with you soon!"
           }`
         );
         setFullName("");
@@ -184,7 +184,7 @@ const Contact = () => {
                text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white 
                focus:ring-4 focus:ring-green-400 dark:focus:ring-green-300 transition-all 
                placeholder-gray-400 dark:placeholder-gray-500 shadow-md resize-none"
-              placeholder="Write your message here..."
+              placeholder="How can I help you today?"
               rows={5}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
