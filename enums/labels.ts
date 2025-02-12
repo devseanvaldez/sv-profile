@@ -17,15 +17,15 @@ export const LABELS = {
     ],
     technologies: [
       "ReactJS",
-      "NextJS",
       "Redux Toolkit",
+      "NextJS",
       "Tailwind CSS",
       "JavaScript",
       "TypeScript", // ✅ Added TypeScript
       "Git",
-      "Axios",
       "Material-UI",
       "Reactstrap",
+      "Axios",
     ],
   },
   about: {
