@@ -3,6 +3,19 @@ import { LABELS } from "@/enums/labels";
 import TwoGridWithImage from "@/layouts/TwoGridWithImage";
 import dynamic from "next/dynamic";
 
+// Importing React Icons for Technologies
+import { FaReact, FaGitAlt } from "react-icons/fa6";
+import {
+  SiNextdotjs,
+  SiRedux,
+  SiTailwindcss,
+  SiJavascript,
+  SiTypescript, // ✅ Added TypeScript
+  SiAxios,
+  SiMui,
+  SiBootstrap,
+} from "react-icons/si";
+
 // Dynamically import Lottie with SSR disabled
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
@@ -10,6 +23,30 @@ import designerBuildingWebsiteAnimation from "@/lottie/designer-building-website
 import webDesignLayoutAnimation from "@/lottie/web-design-layout.json";
 import userInterfaceResearchAnimation from "@/lottie/user-interface-research.json";
 import Footer from "@/components/Footer/Footer";
+
+// Mapping Technologies to Icons
+const technologyIcons: Record<string, JSX.Element> = {
+  ReactJS: <FaReact className="text-blue-500 dark:text-blue-400 text-xl" />,
+  NextJS: <SiNextdotjs className="text-gray-900 dark:text-gray-100 text-xl" />,
+  "Redux Toolkit": (
+    <SiRedux className="text-purple-600 dark:text-purple-400 text-xl" />
+  ),
+  "Tailwind CSS": (
+    <SiTailwindcss className="text-blue-400 dark:text-blue-300 text-xl" />
+  ),
+  JavaScript: (
+    <SiJavascript className="text-yellow-500 dark:text-yellow-400 text-xl" />
+  ),
+  TypeScript: (
+    <SiTypescript className="text-blue-500 dark:text-blue-400 text-xl" />
+  ), // ✅ Added TypeScript
+  Git: <FaGitAlt className="text-red-600 dark:text-red-400 text-xl" />,
+  Axios: <SiAxios className="text-blue-600 dark:text-blue-400 text-xl" />,
+  "Material-UI": <SiMui className="text-blue-500 dark:text-blue-400 text-xl" />,
+  Reactstrap: (
+    <SiBootstrap className="text-blue-700 dark:text-blue-400 text-xl" />
+  ),
+};
 
 export default function Home() {
   return (
@@ -22,10 +59,10 @@ export default function Home() {
         leftChild={
           <div
             className="xl:py-4 space-y-6 p-6 bg-white/80 dark:bg-gray-900/50 backdrop-blur-xl 
-                      rounded-xl shadow-xl hover:scale-[1.02] transition-transform duration-300"
+          rounded-xl shadow-xl opacity-0 animate-fade-in transition-all duration-500"
           >
             <p
-              className="uppercase font-bold text-6xl pt-10 xl:pt-0 text-sagegreen-600 font-heading 
+              className="uppercase font-bold text-6xl pt-10 xl:pt-0 text-green-600 font-heading 
                          bg-gradient-to-r from-green-400 to-green-600 text-transparent bg-clip-text tracking-wide"
             >
               {LABELS.introduction.title}
@@ -33,14 +70,20 @@ export default function Home() {
             <p className="text-3xl font-light py-6 max-w-[35rem] leading-[3rem] text-gray-700 dark:text-gray-300">
               {LABELS.introduction.text}
             </p>
+
+            {/* Technologies with Icons */}
             <div className="flex flex-wrap gap-4">
-              {LABELS.introduction.technologies.map((label) => (
+              {LABELS.introduction.technologies.map((tech) => (
                 <span
-                  key={label}
-                  className="bg-green-400 dark:bg-green-100 text-white dark:text-black 
-                             px-3 py-1 rounded-md shadow hover:scale-105 transition-transform duration-300"
+                  key={tech}
+                  className="flex items-center gap-2 px-4 py-2 rounded-2xl shadow-lg 
+           bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100
+           border border-gray-200 dark:border-gray-700
+           hover:bg-gray-50 dark:hover:bg-gray-700 
+           hover:shadow-xl hover:-translate-y-1 
+           transition-all duration-300 ease-in-out"
                 >
-                  {label}
+                  {technologyIcons[tech] ?? <SiJavascript />} {tech}
                 </span>
               ))}
             </div>

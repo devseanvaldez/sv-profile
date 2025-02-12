@@ -21,6 +21,7 @@ export const LABELS = {
       "Redux Toolkit",
       "Tailwind CSS",
       "JavaScript",
+      "TypeScript", // ✅ Added TypeScript
       "Git",
       "Axios",
       "Material-UI",
