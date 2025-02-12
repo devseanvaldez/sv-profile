@@ -7,6 +7,19 @@ import happyHackerAnimation from "@/lottie/happy-hacker.json";
 import Link from "next/link";
 import Footer from "@/components/Footer/Footer";
 
+// Importing React Icons for Technologies
+import { FaReact, FaGitAlt } from "react-icons/fa6";
+import {
+  SiNextdotjs,
+  SiRedux,
+  SiTailwindcss,
+  SiJavascript,
+  SiTypescript,
+  SiAxios,
+  SiMui,
+  SiBootstrap,
+} from "react-icons/si";
+
 // Dynamically import Lottie with SSR disabled
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
@@ -23,6 +36,30 @@ const renderStars = (rating: number) => {
       {"☆".repeat(emptyStars)}
     </span>
   );
+};
+
+// Mapping Technologies to Icons
+const technologyIcons: Record<string, JSX.Element> = {
+  ReactJS: <FaReact className="text-blue-500 dark:text-blue-400 text-xl" />,
+  NextJS: <SiNextdotjs className="text-gray-900 dark:text-gray-100 text-xl" />,
+  "Redux Toolkit": (
+    <SiRedux className="text-purple-600 dark:text-purple-400 text-xl" />
+  ),
+  "Tailwind CSS": (
+    <SiTailwindcss className="text-blue-400 dark:text-blue-300 text-xl" />
+  ),
+  JavaScript: (
+    <SiJavascript className="text-yellow-500 dark:text-yellow-400 text-xl" />
+  ),
+  TypeScript: (
+    <SiTypescript className="text-blue-500 dark:text-blue-400 text-xl" />
+  ),
+  Git: <FaGitAlt className="text-red-600 dark:text-red-400 text-xl" />,
+  Axios: <SiAxios className="text-blue-600 dark:text-blue-400 text-xl" />,
+  "Material-UI": <SiMui className="text-blue-500 dark:text-blue-400 text-xl" />,
+  Reactstrap: (
+    <SiBootstrap className="text-blue-700 dark:text-blue-400 text-xl" />
+  ),
 };
 
 const AboutMe = () => {
@@ -88,38 +125,26 @@ const AboutMe = () => {
             </div>
           )}
 
-          {/* Technologies Section */}
+          {/* Technologies Section with Icons */}
           <div className="flex flex-col mt-10 gap-4">
             <p className="font-bold pb-2 text-2xl text-gray-800 dark:text-gray-200 text-center">
               Technologies
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              {LABELS.about.technologies.map((label: string) => (
+              {LABELS.about.technologies.map((tech) => (
                 <span
-                  key={label}
-                  className="bg-green-400 dark:bg-green-100 text-white dark:text-black 
-                             px-3 py-1 rounded-md shadow hover:scale-105 transition-transform duration-300"
+                  key={tech}
+                  className="flex items-center gap-2 px-4 py-2 rounded-2xl shadow-lg 
+           bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100
+           border border-gray-200 dark:border-gray-700
+           hover:bg-gray-50 dark:hover:bg-gray-700 
+           hover:shadow-xl hover:-translate-y-1 
+           transition-all duration-300 ease-in-out"
                 >
-                  {label}
+                  {technologyIcons[tech] ?? <SiJavascript />} {tech}
                 </span>
               ))}
             </div>
-          </div>
-
-          {/* Let's Connect Button (Under Technologies) */}
-          <div className="flex flex-col items-center mt-8 space-y-2">
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full shadow-lg text-lg font-bold uppercase 
-               tracking-wide transition-all duration-300 ease-in-out 
-               bg-gradient-to-r from-green-500 to-green-600 text-white dark:from-green-400 dark:to-green-500 dark:text-gray-900
-               hover:scale-105 transform"
-            >
-              🤝 Let’s Connect
-            </Link>
-            <p className="text-gray-600 dark:text-gray-300 text-sm">
-              Have a project? Let’s collaborate!
-            </p>
           </div>
 
           {/* Testimonials Section */}
@@ -147,7 +172,6 @@ const AboutMe = () => {
                   <p className="text-gray-500 dark:text-gray-400 text-sm">
                     {testimonial.year}
                   </p>
-                  {/* ⭐ Star Rating */}
                   <p className="mt-2">{renderStars(testimonial.rating)}</p>
 
                   {/* 🎥 Video for TheOne Travel and Tours */}
@@ -170,14 +194,11 @@ const AboutMe = () => {
             </div>
           </div>
 
-          {/* Reach Out Button */}
+          {/* 📩 Reach Out Now Button */}
           <div className="flex justify-center mt-10">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full shadow-lg text-lg font-bold uppercase 
-               tracking-wide transition-all duration-300 ease-in-out 
-               bg-gradient-to-r from-blue-500 to-blue-600 text-white dark:from-blue-400 dark:to-blue-500 dark:text-gray-900
-               hover:scale-105 transform"
+              className="px-6 py-3 rounded-full bg-blue-600 text-white font-bold shadow-lg hover:bg-blue-700 transition-all"
             >
               📩 Reach Out Now
             </Link>
