@@ -64,7 +64,7 @@ export default function Home() {
             <p
               className="uppercase font-extrabold text-7xl font-heading 
              tracking-wide animate-pulse transition-all duration-700
-             bg-gradient-to-br from-green-400 via-emerald-500 to-green-600 
+             bg-gradient-to-br from-green-400 via-emerald-500 to-green-600
              dark:from-lime-300 dark:via-green-400 dark:to-emerald-500
              text-transparent bg-clip-text
              drop-shadow-md dark:drop-shadow-lg"
