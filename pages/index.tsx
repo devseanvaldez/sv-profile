@@ -62,7 +62,7 @@ export default function Home() {
           rounded-xl shadow-xl opacity-0 animate-fade-in transition-all duration-500"
           >
             <p
-              className="uppercase font-extrabold text-7xl font-heading 
+              className="uppercase font-extrabold text-6xl font-heading 
              tracking-wide animate-pulse transition-all duration-700
              bg-gradient-to-br from-green-400 via-emerald-500 to-green-600
              dark:from-lime-300 dark:via-green-400 dark:to-emerald-500
