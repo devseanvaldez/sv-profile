@@ -62,8 +62,12 @@ export default function Home() {
           rounded-xl shadow-xl opacity-0 animate-fade-in transition-all duration-500"
           >
             <p
-              className="uppercase font-bold text-6xl pt-10 xl:pt-0 font-heading 
-                         bg-gradient-to-r from-green-400 to-green-600 text-transparent bg-clip-text tracking-wide"
+              className="uppercase font-extrabold text-7xl font-heading 
+             tracking-wide animate-pulse transition-all duration-700
+             bg-gradient-to-br from-green-400 via-emerald-500 to-green-600 
+             dark:from-lime-300 dark:via-green-400 dark:to-emerald-500
+             text-transparent bg-clip-text
+             drop-shadow-md dark:drop-shadow-lg"
             >
               {LABELS.introduction.title}
             </p>
