@@ -11,7 +11,7 @@ type Props = {
 
 const TwoGridWithImage = ({ img, children, leftChild }: Props) => {
   return (
-    <div className="sm:min-h-screen grid sm:grid-cols-2 items-start bg-gradient-to-t xl:bg-gradient-to-l from-sagegreen-500">
+    <div className="sm:min-h-screen gap-4 grid sm:grid-cols-2 items-start bg-gradient-to-t xl:bg-gradient-to-l from-sagegreen-500">
       {/* Left Column - Image & Branding Section */}
       <div className="relative sm:h-screen sm:sticky top-0 z-10 order-1 overflow-hidden flex flex-col">
         {/* Background Image Layer */}

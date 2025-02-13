@@ -90,12 +90,12 @@ export default function Home() {
           </div>
         }
       >
-        <div className="min-h-screen order-2 sm:p-10 p-4 space-y-12">
+        <div className="min-h-screen order-2 p-4 sm:p-10 space-y-6 sm:space-y-12">
           {/* Enhanced CONTENT headline */}
           <p
-            className="uppercase font-heading text-5xl lg:text-center text-center mb-10 tracking-wider 
-                       bg-gradient-to-r from-green-400 to-green-600 text-transparent bg-clip-text 
-                       drop-shadow-lg"
+            className="uppercase font-heading text-4xl sm:text-5xl text-center mb-6 sm:mb-10 tracking-wide 
+             bg-gradient-to-r from-green-400 to-green-600 text-transparent bg-clip-text 
+             drop-shadow-md"
           >
             {LABELS.content.title}
           </p>

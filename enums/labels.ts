@@ -78,7 +78,7 @@ export const LABELS = {
     number: "(+63) 947 979 6562",
   },
   content: {
-    title: "Content",
+    title: "Interface Engineering",
     "content-1": "UI/UX Research",
     "content-2": "Design Layouts",
     "content-3": "Build Designs",
