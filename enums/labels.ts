@@ -32,7 +32,7 @@ export const LABELS = {
     title: "About Me",
     text: [
       "Hi, I'm Sean. In 2020, I started as a junior-level frontend developer at a logistics company in the Philippines. I contributed to in-house projects such as logistics dashboards that integrated GPS and Google Maps with our backend services, providing real-time data via sockets. During a brief period on Upwork, I also gained experience building websites for businesses, including a travel agency app used in the UAE. This experience enabled me to redesign legacy websites into modern React/NextJS applications that incorporate new features and functionalities tailored to client requirements.",
-      "The primary technologies I use include ReactJS, NextJS, TailwindCSS, and Git. I also work with libraries such as Redux Toolkit and Axios, and UI frameworks like Material-UI and Reactstrap, among others.",
+      "The primary technologies I use include ReactJS, NextJS, JavaScript, TypeScript, TailwindCSS, and Git. I also work with libraries such as Redux Toolkit and Axios, and UI frameworks like Material-UI and Reactstrap, among others.",
       "I continuously hone my skills and possess strong problem-solving abilities. I ensure that my code is optimized and passes performance tests, frequently using Lighthouse to identify and address performance bottlenecks.",
       "Effective communication is essential to me, as it helps ensure that I understand task requirements efficiently.",
       "Does your project align perfectly with my skills?",
