@@ -147,6 +147,22 @@ const AboutMe = () => {
             </div>
           </div>
 
+          {/* Let's Connect Button */}
+          <div className="flex flex-col items-center mt-8 space-y-2">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full shadow-lg text-lg font-bold uppercase 
+               tracking-wide transition-all duration-300 ease-in-out 
+               bg-gradient-to-r from-green-500 to-green-600 text-white dark:from-green-400 dark:to-green-500 dark:text-gray-900
+               hover:scale-105 transform"
+            >
+              🤝 Let’s Connect
+            </Link>
+            <p className="text-gray-600 dark:text-gray-300 text-sm">
+              Have a project? Let’s collaborate!
+            </p>
+          </div>
+
           {/* Testimonials Section */}
           <div className="mt-10">
             <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-200 text-center mb-6">
@@ -194,11 +210,14 @@ const AboutMe = () => {
             </div>
           </div>
 
-          {/* 📩 Reach Out Now Button */}
+          {/* Reach Out Button */}
           <div className="flex justify-center mt-10">
             <Link
               href="/contact"
-              className="px-6 py-3 rounded-full bg-blue-600 text-white font-bold shadow-lg hover:bg-blue-700 transition-all"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full shadow-lg text-lg font-bold uppercase 
+               tracking-wide transition-all duration-300 ease-in-out 
+               bg-gradient-to-r from-blue-500 to-blue-600 text-white dark:from-blue-400 dark:to-blue-500 dark:text-gray-900
+               hover:scale-105 transform"
             >
               📩 Reach Out Now
             </Link>
